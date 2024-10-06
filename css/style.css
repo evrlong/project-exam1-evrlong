@@ -1,10 +1,22 @@
 /* FONTS */
-
-* {
+body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+  height: 100%;
 }
+.container {
+  min-height: 50vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+  width: 100%;
+}
+
+
 
 a {
   font-size: 11px;
