@@ -1,0 +1,235 @@
+/* FONTS */
+
+* {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+a {
+  font-size: 11px;
+}
+
+p {
+  font-weight: 700;
+}
+
+/* Header container */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+}
+
+#header-img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Overlay-bilde */
+#overlay-img {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  width: 20vw;
+  max-width: 100px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.5s ease;
+  filter: drop-shadow(2px 2px 2px #222);
+}
+
+#overlay-img:hover {
+  transform: translate(-50%, -50%) scale(1.05); /* Scale up on hover */
+  filter: drop-shadow(5px 5px 5px #222);
+}
+
+nav {
+  padding: 10px 0;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  position: absolute;
+  top: 20px;
+}
+
+/* Flexbox for menylenkene */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0px 10px;
+  display: flex; /* Plasserer lenkene horisontalt */
+  gap: 20px; /* Avstand mellom lenkene */
+}
+
+nav ul li {
+  background-color: rgba(110, 110, 110, 0.5);
+  display: inline;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+/* Styling for lenker */
+nav ul li a {
+  text-decoration: none;
+  color: white; /* Hvit tekst for synlighet */
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px; /* Runde hjørner */
+}
+
+/* Endrer fargen på lenken ved hover */
+nav ul li:hover {
+  text-decoration: underline;
+  text-decoration-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.3); /* Lysere bakgrunn ved hover */
+  box-shadow: 2px 2px 2px black;
+}
+
+.container {
+  height: 340px;
+}
+
+footer {
+  background-color: #495335; /* Bakgrunnsfarge for footeren */
+  padding-top: 10px;
+}
+
+.footerLinks li,
+ul {
+  text-decoration: none;
+  list-style-type: none;
+  padding-left: 5px; 
+  text-align: left;
+}
+
+.footerLinks li a {
+  text-decoration: none;
+  color: white;
+}
+
+.inputWrapper {
+  display: flex;
+  margin: 0px;
+}
+
+.emailInput {
+  display: block;
+}
+
+.fa-brands {
+  color: #495335;
+  margin: 3px 5px 3px 5px;
+}
+
+.top-section {
+  width: 100%; /* 100% bredde */
+  text-align: center; /* Sentrerer innholdet */
+}
+
+.green-section {
+  padding: 10px;
+}
+
+.some-section {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #ffffff;
+}
+
+.fa-brands {
+  color: #495335;
+}
+
+.bottom-sections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30px 0px;
+}
+
+.bottom-section {
+  flex: 1; /* Hver seksjon tar lik bredde */
+  text-align: center; /* Sentrerer innholdet */
+  padding: 20px; /* Padding for bunnseksjonene */
+}
+
+.bottom-section p {
+  background-color: #ffffff10;
+  width: fit-content;
+  padding: 10px 5px;
+  border-radius: 5px;
+  color: white;
+}
+.logoFooter {
+  max-width: 120px;
+  filter: drop-shadow(4px 5px 0.1px #000000);
+  margin: 0 auto;
+}
+
+.logoFooter {
+  opacity: 0.3;
+  display: block;
+  max-width: 150px;
+}
+
+.logo-section {
+  display: block;
+  margin: auto;
+}
+
+/* Responsive footer for small screens */
+@media (max-width: 600px) {
+  .some-section {
+    padding: 40px;
+    justify-content: space-around;
+
+    
+  }
+
+  .some-section i {
+    font-size: 30px;
+    text-shadow: -0.5px -0.5px 0.5px rgb(131, 131, 131);;
+  }
+
+  .bottom-sections {
+    justify-content: center;
+
+  }
+
+ 
+  .footerLinks li, ul {
+    padding: 0px;
+    text-align: center;
+  }
+
+  .inputWrapper {
+    padding: 20px;
+    justify-content: center;
+  }
+
+ 
+  
+  
+  .bottom-section p {
+    background-color: #ffffff10;
+    width: fit-content;
+    padding: 10px 5px;
+    border-radius: 5px;
+    color: white;
+    text-align: center; /* Ensure <p> text is centered */
+    margin: 0 auto; /* Center the <p> element itself */
+  }
+  
+
+  
+}
