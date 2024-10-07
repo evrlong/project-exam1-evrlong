@@ -5,8 +5,17 @@ body {
   font-style: normal;
   height: 100%;
 }
+
+a {
+  font-size: 11px;
+}
+
+p {
+  font-weight: 700;
+}
+
 .container {
-  min-height: 50vh; /* Full viewport height */
+  min-height: 80vh; /* Full viewport height */
   display: flex;
   flex-direction: column;
 }
@@ -16,15 +25,6 @@ footer {
   width: 100%;
 }
 
-
-
-a {
-  font-size: 11px;
-}
-
-p {
-  font-weight: 700;
-}
 
 /* Header container */
 header {
@@ -111,6 +111,52 @@ nav ul li:hover {
   height: 340px;
 }
 
+/* blog card */
+
+.blogCardContainer {
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  background-color: #f0f0f0;
+  box-shadow: 1px 1px 0.5px #00000050;
+  width: 200px; 
+}
+
+.blog-card img {
+  width: 100%; /* Fyller bredden på kortet */
+  height: 250px; /* Sett en fast høyde for alle bilder */
+  object-fit: cover; /* Croppes for å fylle containeren */
+}
+
+.arrowBtnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+
+}
+
+#arrowRight, #arrowLeft {
+  color: #495335;
+  font-size: 20px;
+  margin: 0px 15px;
+}
+
+#allBlogs {
+  color: #495335;
+  font-size: 20px;
+  margin: 15px;
+}
+
+
 footer {
   background-color: #495335; /* Bakgrunnsfarge for footeren */
   padding-top: 10px;
@@ -135,8 +181,34 @@ ul {
 }
 
 .emailInput {
-  display: block;
+  max-width: 400px; /* Limits the width */
+  padding: 10px; /* Adds spacing inside the input */
+  margin: 10px 0; /* Adds spacing around the input */
+  border: 1px solid #ccc; /* Light border for clean look */
+  border-radius: 5px 0px 0px 5px; /* Rounded corners */
+  font-size: 16px; /* Easy-to-read font size */
+  outline: none; /* Removes default outline on focus */
+  transition: border-color 0.3s ease-in-out; /* Smooth transition for focus state */
 }
+
+.emailInput:focus {
+  border-color: #007BFF; /* Changes border color when focused */
+}
+
+.submit-btn {
+  background-color: #be622d; /* Blue background color */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Adds spacing inside the button */
+  margin: 10px 0; /* Adds spacing around the button */
+  border: none; /* Removes default button border */
+  border-radius:  0px 5px 5px 0px; /* Rounded corners */
+  font-size: 16px; /* Easy-to-read font size */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  outline: none; /* Removes default outline on focus */
+  transition: background-color 0.3s ease-in-out; /* Smooth transition for hover state */
+}
+
+
 
 .fa-brands {
   color: #495335;
@@ -156,6 +228,12 @@ ul {
   display: flex;
   justify-content: flex-end;
   background-color: #ffffff;
+}
+
+.some-section i {
+  font-size: 30px;
+  margin: 10px;
+  text-shadow: -0.5px -0.5px 0.5px rgb(131, 131, 131);
 }
 
 .fa-brands {
