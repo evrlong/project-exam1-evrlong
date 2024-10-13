@@ -2,19 +2,48 @@
 
 export function createHeader() {
     const header = document.createElement('header');
-    header.innerHTML = `
-         <img src="/images/headerImg.jpg" alt="header image" id="header-img">
-        <a href="index.html">
-            <img src="/images/logo.png" alt="Overlay Link" id="overlay-img">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    `;
+
+    // Header image
+    const headerImg = document.createElement('img');
+    headerImg.src = '/images/headerImg.jpg';
+    headerImg.alt = 'header image';
+    headerImg.id = 'header-img';
+    header.appendChild(headerImg);
+
+    // Logo link
+    const logoLink = document.createElement('a');
+    logoLink.href = 'index.html';
+
+    const overlayImg = document.createElement('img');
+    overlayImg.src = '/images/logo.png';
+    overlayImg.alt = 'Overlay Link';
+    overlayImg.id = 'overlay-img';
+    logoLink.appendChild(overlayImg);
+
+    header.appendChild(logoLink);
+
+    // Navigation
+    const nav = document.createElement('nav');
+    const ul = document.createElement('ul');
+
+    const navItems = [
+        { href: '#blog', text: 'Blog' },
+        { href: '#about', text: 'About' },
+        { href: '#contact', text: 'Contact' }
+    ];
+
+    navItems.forEach(item => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = item.href;
+        a.textContent = item.text;
+        li.appendChild(a);
+        ul.appendChild(li);
+    });
+
+    nav.appendChild(ul);
+    header.appendChild(nav);
+
     return header;
 }
 

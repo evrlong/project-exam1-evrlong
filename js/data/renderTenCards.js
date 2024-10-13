@@ -3,10 +3,9 @@ import { fetchData } from '../data/fetchData.js'; // Correct path to fetchData
 let currentIndex = 0; // Start at the first set of blog cards
 let posts = []; // To store all posts
 
-document.getElementById('nextBlogCards').addEventListener('click', renderNextBlogCards);
-document.getElementById('previousBlogCards').addEventListener('click', renderPreviousBlogCards);
+document.getElementsByClassName('showMoreBtn')[0].addEventListener('click', renderMoreBlogCards);
 
-export async function renderBlogCard() {
+export async function renderTenCards() {
     try {
         posts = await fetchData();
 
@@ -30,7 +29,13 @@ function renderBlogCardsSet(index) {
         { id: 'blogCard1', postIndex: index },
         { id: 'blogCard2', postIndex: index + 1 },
         { id: 'blogCard3', postIndex: index + 2 },
-        { id: 'blogCard4', postIndex: index + 3 }
+        { id: 'blogCard4', postIndex: index + 3 },
+        { id: 'blogCard5', postIndex: index + 4 },
+        { id: 'blogCard6', postIndex: index + 5 },
+        { id: 'blogCard7', postIndex: index + 6 },
+        { id: 'blogCard8', postIndex: index + 7 },
+        { id: 'blogCard9', postIndex: index + 8 },
+        { id: 'blogCard10', postIndex: index + 9},
     ];
 
     cardElements.forEach(({ id, postIndex }) => {
@@ -57,21 +62,13 @@ function renderBlogCardsSet(index) {
     });
 }
 
-// Function to render the next set of blog cards. Explanation: adds index by 4 to get the next set of blog cards
-function renderNextBlogCards() {
+function renderMoreBlogCards() {
     console.log('currentIndex2', currentIndex);
-    if (currentIndex + 4 < posts.length) {
-        currentIndex += 4; 
+    if (currentIndex + 10 < posts.length) {
+        currentIndex += 10; 
         renderBlogCardsSet(currentIndex);
     } else { 
         currentIndex = 0;
-        renderBlogCardsSet(currentIndex);
-    }
-}
-
-function renderPreviousBlogCards() {
-    if (currentIndex - 4 >= 0) {
-        currentIndex -= 4; 
         renderBlogCardsSet(currentIndex);
     }
 }

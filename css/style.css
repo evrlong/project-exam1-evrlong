@@ -4,8 +4,10 @@ body {
   font-optical-sizing: auto;
   font-style: normal;
   height: 100%;
+  margin: 1px;
 }
 
+/* GENERAL STYLING */
 a {
   font-size: 11px;
 }
@@ -119,6 +121,7 @@ nav ul li:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .blog-card {
@@ -126,8 +129,12 @@ nav ul li:hover {
   flex-direction: column;
   margin: 20px;
   background-color: #f0f0f0;
-  box-shadow: 1px 1px 0.5px #00000050;
+  box-shadow: 0.5px 0.5px 0.2px #0000002f;
   width: 200px; 
+}
+
+.blog-card h4 {
+  margin: 10px 0px 0px 2px;
 }
 
 .blog-card img {
@@ -136,7 +143,7 @@ nav ul li:hover {
   object-fit: cover; /* Croppes for å fylle containeren */
 }
 
-.arrowBtnContainer {
+.allBlogContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -144,16 +151,29 @@ nav ul li:hover {
 
 }
 
-#arrowRight, #arrowLeft {
+.arrow {
   color: #495335;
   font-size: 20px;
   margin: 0px 15px;
+  height: 40px;
+  width: 40px;
+  align-items: center;
+border-radius: 10px;
+  background-color: #f0f0f0;
+  box-shadow: 1px 1px 0.8px #00000050;
+  cursor: pointer;
+  border: none;
 }
 
 #allBlogs {
-  color: #495335;
+  color: #333;
   font-size: 20px;
   margin: 15px;
+  height: 40px;
+  border-radius: 10px;
+  font-weight: bold;
+  border: none;
+  box-shadow: 1px 1px 0.8px #00000050;
 }
 
 
@@ -297,6 +317,12 @@ ul {
 
   }
 
+  .blog-card {
+    width: 100%;
+  }
+.arrow { 
+  display: none;
+}
  
   .footerLinks li, ul {
     padding: 0px;

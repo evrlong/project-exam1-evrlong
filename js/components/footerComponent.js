@@ -1,8 +1,6 @@
 // js/components/footerComponent.js
 
 export function createFooter() {
-    
-
     const footer = document.createElement('footer');
 
     // Top section
@@ -14,12 +12,19 @@ export function createFooter() {
 
     const someSection = document.createElement('div');
     someSection.classList.add('some-section');
-    someSection.innerHTML = `
-        <i class="fa-brands fa-square-facebook"></i>
-        <i class="fa-brands fa-youtube"></i>
-        <i class="fa-brands fa-square-instagram"></i>
-        <i class="fa-brands fa-square-snapchat"></i>
-    `;
+    
+    const icons = [
+        { class: 'fa-brands fa-square-facebook' },
+        { class: 'fa-brands fa-youtube' },
+        { class: 'fa-brands fa-square-instagram' },
+        { class: 'fa-brands fa-square-snapchat' }
+    ];
+
+    icons.forEach(icon => {
+        const i = document.createElement('i');
+        i.className = icon.class;
+        someSection.appendChild(i);
+    });
 
     topSection.appendChild(greenSection);
     topSection.appendChild(someSection);
@@ -31,28 +36,59 @@ export function createFooter() {
     // First bottom section (Quick Links)
     const quickLinks = document.createElement('div');
     quickLinks.classList.add('bottom-section');
-    quickLinks.innerHTML = `
-        <p>QUICK LINKS</p>
-        <ul class="footerLinks">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="blogs.html">BLOG</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-    `;
+
+    const quickLinksTitle = document.createElement('p');
+    quickLinksTitle.textContent = 'QUICK LINKS';
+    quickLinks.appendChild(quickLinksTitle);
+
+    const quickLinksList = document.createElement('ul');
+    quickLinksList.classList.add('footerLinks');
+
+    const links = [
+        { href: 'index.html', text: 'HOME' },
+        { href: 'blogs.html', text: 'BLOG' },
+        { href: 'about.html', text: 'ABOUT' },
+        { href: 'contact.html', text: 'CONTACT' }
+    ];
+
+    links.forEach(link => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = link.href;
+        a.textContent = link.text;
+        li.appendChild(a);
+        quickLinksList.appendChild(li);
+    });
+
+    quickLinks.appendChild(quickLinksList);
 
     // Second bottom section (Subscribe)
     const subscribeSection = document.createElement('div');
     subscribeSection.classList.add('bottom-section');
-    subscribeSection.innerHTML = `
-        <p>SUBSCRIBE</p>
-        <div class="inputWrapper">
-            <input class="emailInput" type="email" placeholder="Submit email">
-            <button type="submit" class="submit-btn">
-                <i class="fa-solid fa-caret-right"></i>
-            </button>
-        </div>
-    `;
+
+    const subscribeTitle = document.createElement('p');
+    subscribeTitle.textContent = 'SUBSCRIBE';
+    subscribeSection.appendChild(subscribeTitle);
+
+    const inputWrapper = document.createElement('div');
+    inputWrapper.classList.add('inputWrapper');
+
+    const emailInput = document.createElement('input');
+    emailInput.classList.add('emailInput');
+    emailInput.type = 'email';
+    emailInput.placeholder = 'Submit email';
+    inputWrapper.appendChild(emailInput);
+
+    const submitBtn = document.createElement('button');
+    submitBtn.type = 'submit';
+    submitBtn.classList.add('submit-btn');
+
+    const submitIcon = document.createElement('i');
+    submitIcon.classList.add('fa-solid', 'fa-caret-right');
+    submitBtn.appendChild(submitIcon);
+    
+    inputWrapper.appendChild(submitBtn);
+    subscribeSection.appendChild(inputWrapper);
 
     // Third bottom section (Logo)
     const logoSection = document.createElement('div');
