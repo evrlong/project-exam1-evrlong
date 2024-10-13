@@ -1,7 +1,11 @@
-import { renderTenCards } from './data/renderTenCards.js'; // import renderBlogCard function from renderBlogCard.js
+// root/blogs.js
+import { renderInitialBlogCards, showMoreBlogCards } from './data/RenderTenCards.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderTenCards(); // Render the blog cards
+    // Load initial blog cards
+    renderInitialBlogCards();
+
+    // Set up event listener for the "show more" button
+    document.querySelector('.showMoreBtn').addEventListener('click', showMoreBlogCards);
 });
-
-
+   

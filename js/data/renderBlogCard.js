@@ -1,6 +1,7 @@
 import { fetchData } from '../data/fetchData.js'; // Correct path to fetchData
 
-let currentIndex = 0; // Start at the first set of blog cards
+let currentPage = 1; // Start at the first page
+let postsPerPage = 4; // Number of posts to fetch per page
 let posts = []; // To store all posts
 
 document.getElementById('nextBlogCards').addEventListener('click', renderNextBlogCards);
@@ -8,29 +9,30 @@ document.getElementById('previousBlogCards').addEventListener('click', renderPre
 
 export async function renderBlogCard() {
     try {
-        posts = await fetchData();
+        // Fetch posts for the current page
+        posts = await fetchData(postsPerPage, currentPage);
 
         if (posts && posts.length > 0) {
             // Render the first set of blog cards
-            renderBlogCardsSet(currentIndex);
+            renderBlogCardsSet();
+        } else {
+            console.log('No more posts available.');
         }
     } catch (error) {
         console.error('Error rendering blog cards:', error);
     }
 
     console.log('Posts:', posts);
-    console.log('Current index:', currentIndex);
+    console.log('Current page:', currentPage);
     console.log('Number of posts:', posts.length);
 }
 
-function renderBlogCardsSet(index) {
-    console.log('index', index);
-
+function renderBlogCardsSet() {
     const cardElements = [
-        { id: 'blogCard1', postIndex: index },
-        { id: 'blogCard2', postIndex: index + 1 },
-        { id: 'blogCard3', postIndex: index + 2 },
-        { id: 'blogCard4', postIndex: index + 3 }
+        { id: 'blogCard1', postIndex: 0 },
+        { id: 'blogCard2', postIndex: 1 },
+        { id: 'blogCard3', postIndex: 2 },
+        { id: 'blogCard4', postIndex: 3 }
     ];
 
     cardElements.forEach(({ id, postIndex }) => {
@@ -39,7 +41,7 @@ function renderBlogCardsSet(index) {
 
         const cardElement = document.getElementById(id);
 
-        //  removes all child nodes from the card element
+        // Remove all child nodes from the card element
         while (cardElement.firstChild) {
             cardElement.removeChild(cardElement.firstChild);
         }
@@ -57,21 +59,16 @@ function renderBlogCardsSet(index) {
     });
 }
 
-// Function to render the next set of blog cards. Explanation: adds index by 4 to get the next set of blog cards
-function renderNextBlogCards() {
-    console.log('currentIndex2', currentIndex);
-    if (currentIndex + 4 < posts.length) {
-        currentIndex += 4; 
-        renderBlogCardsSet(currentIndex);
-    } else { 
-        currentIndex = 0;
-        renderBlogCardsSet(currentIndex);
-    }
+// Function to render the next set of blog cards
+async function renderNextBlogCards() {
+    currentPage++; // Move to the next page
+    await renderBlogCard(); // Fetch and render posts for the new page
 }
 
-function renderPreviousBlogCards() {
-    if (currentIndex - 4 >= 0) {
-        currentIndex -= 4; 
-        renderBlogCardsSet(currentIndex);
+// Function to render the previous set of blog cards
+async function renderPreviousBlogCards() {
+    if (currentPage > 1) {
+        currentPage--; // Move to the previous page
+        await renderBlogCard(); // Fetch and render posts for the new page
     }
 }

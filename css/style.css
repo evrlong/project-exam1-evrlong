@@ -143,12 +143,19 @@ nav ul li:hover {
   object-fit: cover; /* Croppes for å fylle containeren */
 }
 
-.allBlogContainer {
+#blogCardContainer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin: 10px;
 
+}
+
+.allBlogContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .arrow {
