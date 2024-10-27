@@ -16,10 +16,8 @@ p {
   font-weight: 700;
 }
 
-.container {
-  min-height: 80vh; /* Full viewport height */
-  display: flex;
-  flex-direction: column;
+#about-section p {
+  font-weight: 400;
 }
 
 footer {
@@ -28,7 +26,7 @@ footer {
 }
 
 
-/* Header container */
+/* Header */
 header {
   display: flex;
   flex-direction: column;
@@ -108,12 +106,75 @@ nav ul li:hover {
   background-color: rgba(255, 255, 255, 0.3); /* Lysere bakgrunn ved hover */
   box-shadow: 2px 2px 2px black;
 }
+/* ----- PAGE CONTENT ----- */
 
-.container {
-  height: 340px;
+/* INDEX PAGE */
+
+.sliderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px;
 }
 
+.arrow {
+  color: #495335;
+  font-size: 20px;
+  margin: 0px 15px;
+  height: 40px;
+  width: 40px;
+  align-items: center;
+border-radius: 10px;
+  background-color: #f0f0f0;
+  box-shadow: 1px 1px 0.8px #00000050;
+  cursor: pointer;
+  border: none;
+}
+
+.allBlogsBtn {
+  padding: 10px;
+  color: #333;
+  background-color: aqua;
+  font-size: 20px;
+  margin: 15px;
+  height: 30px;
+  border-radius: 10px;
+  font-weight: bold;
+  border: none;
+  box-shadow: 1px 1px 0.8px #00000050;
+}
+
+/* BLOGS PAGE */
+/* ABOUT PAGE */
+.aboutContainer {
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.aboutContainer img {
+  width: 20em;
+  height: auto;
+  padding: 3em;
+
+}
+
+#about-section {
+  flex: 1; /* Tar opp all tilgjengelig plass */
+  padding: 3em;
+}
+
+/* CONTACT PAGE */
+/* DETAILS PAGE */
+
+
+
 /* blog card */
+
 
 .blogCardContainer {
   width: 100%;
@@ -144,12 +205,12 @@ nav ul li:hover {
 }
 
 #blogCardContainer {
+  width: 100%;
+  flex-direction: row;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 10px;
-
 }
 
 .allBlogContainer {
@@ -158,31 +219,8 @@ nav ul li:hover {
   align-items: center;
 }
 
-.arrow {
-  color: #495335;
-  font-size: 20px;
-  margin: 0px 15px;
-  height: 40px;
-  width: 40px;
-  align-items: center;
-border-radius: 10px;
-  background-color: #f0f0f0;
-  box-shadow: 1px 1px 0.8px #00000050;
-  cursor: pointer;
-  border: none;
-}
 
-#allBlogs {
-  color: #333;
-  font-size: 20px;
-  margin: 15px;
-  height: 40px;
-  border-radius: 10px;
-  font-weight: bold;
-  border: none;
-  box-shadow: 1px 1px 0.8px #00000050;
-}
-
+/* FOOTER */
 
 footer {
   background-color: #495335; /* Bakgrunnsfarge for footeren */
