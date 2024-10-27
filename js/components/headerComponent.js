@@ -1,4 +1,4 @@
-// js/components/headerComponent.js
+//headerComponent.js: This file will be used to create and render the header of the website.
 
 export function createHeader() {
     const header = document.createElement('header');

@@ -1,5 +1,6 @@
-// root/data/RenderTenCards.js
-import { fetchData } from './fetchData.js'; // Correct path to fetchData
+//renderTenCards.js: This file will be used to render the blog cards on the blogs.html page.
+
+import { fetchData } from '../data/fetchData.js'; // Path to fetchData
 
 let currentPage = 1; // Start at the first page
 const postsPerPage = 10; // Number of posts to fetch per page
@@ -25,7 +26,6 @@ async function renderBlogCards() {
         }
 
         posts = posts.concat(fetchedPosts); // Combine new posts with existing ones
-        console.log('All posts:', posts);
         renderBlogCardsSet(fetchedPosts);
     } catch (error) {
         console.error('Error rendering blog cards:', error);
@@ -35,19 +35,22 @@ async function renderBlogCards() {
 function renderBlogCardsSet(postsToRender) {
     const container = document.getElementById('blogCardContainer'); // Make sure to create this container in your HTML
 
-    postsToRender.forEach((post, index) => {
+    postsToRender.forEach((post) => {
+        const anchorElement = document.createElement('a');
+        anchorElement.href = `details.html?id=${post.id}`; // Set the link to details.html with the post ID as a query parameter
+        
         const cardElement = document.createElement('div');
         cardElement.className = 'blog-card'; // Set the class to blog-card
 
-        const imageUrl = post?.media?.source_url || '';
-        const title = post?.title?.rendered || 'No title';
+        anchorElement.appendChild(cardElement); // Wrap the div inside the anchor
 
-        console.log('Rendering post:', post);
+        const imageUrl = post.media?.source_url || '';
+        const title = post.title?.rendered || 'Empty title';
 
         if (imageUrl) {
             const img = document.createElement('img');
             img.src = imageUrl;
-            img.alt = `Image ${index + 1}`;
+            img.alt = title;
             cardElement.appendChild(img);
         }
 
@@ -55,6 +58,6 @@ function renderBlogCardsSet(postsToRender) {
         titleElement.textContent = title;
         cardElement.appendChild(titleElement);
 
-        container.appendChild(cardElement); // Append the card to the container
+        container.appendChild(anchorElement); // Append the anchor (not card) to the container
     });
 }

@@ -1,5 +1,6 @@
-// root/blogs.js
-import { renderInitialBlogCards, showMoreBlogCards } from './data/RenderTenCards.js';
+//blogs.js: This is the main file that will be used to render the blog cards blogs.html.
+
+import { renderInitialBlogCards, showMoreBlogCards } from './components/renderTenCards.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Load initial blog cards

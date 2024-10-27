@@ -1,4 +1,4 @@
-// js/components/footerComponent.js
+//footerComponent.js: This file will be used to create and render the footer on the pages.
 
 export function createFooter() {
     const footer = document.createElement('footer');
