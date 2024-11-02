@@ -1,0 +1,16 @@
+{
+    "name": "project-exam1-evrlong",
+    "version": "1.0.0",
+    "main": "script.js",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "scripts": {
+      "format": "prettier --write \"**/*.js\" \"**/*.html\"",
+      "format:watch": "prettier --watch \"**/*.js\" \"**/*.html\""
+    },
+    "devDependencies": {
+      "prettier": "^3.3.3"
+    }
+  }

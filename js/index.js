@@ -3,7 +3,5 @@
 import { renderBlogCard } from './components/renderBlogCard.js'; // import renderBlogCard function from renderBlogCard.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderBlogCard(); // Render the blog cards
+  renderBlogCard(); // Render the blog cards
 });
-
-

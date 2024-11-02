@@ -1,115 +1,115 @@
 //footerComponent.js: This file will be used to create and render the footer on the pages.
 
 export function createFooter() {
-    const footer = document.createElement('footer');
+  const footer = document.createElement('footer');
 
-    // Top section
-    const topSection = document.createElement('div');
-    topSection.classList.add('top-section');
+  // Top section
+  const topSection = document.createElement('div');
+  topSection.classList.add('top-section');
 
-    const greenSection = document.createElement('div');
-    greenSection.classList.add('green-section');
+  const greenSection = document.createElement('div');
+  greenSection.classList.add('green-section');
 
-    const someSection = document.createElement('div');
-    someSection.classList.add('some-section');
-    
-    const icons = [
-        { class: 'fa-brands fa-square-facebook' },
-        { class: 'fa-brands fa-youtube' },
-        { class: 'fa-brands fa-square-instagram' },
-        { class: 'fa-brands fa-square-snapchat' }
-    ];
+  const someSection = document.createElement('div');
+  someSection.classList.add('some-section');
 
-    icons.forEach(icon => {
-        const i = document.createElement('i');
-        i.className = icon.class;
-        someSection.appendChild(i);
-    });
+  const icons = [
+    { class: 'fa-brands fa-square-facebook' },
+    { class: 'fa-brands fa-youtube' },
+    { class: 'fa-brands fa-square-instagram' },
+    { class: 'fa-brands fa-square-snapchat' }
+  ];
 
-    topSection.appendChild(greenSection);
-    topSection.appendChild(someSection);
+  icons.forEach((icon) => {
+    const i = document.createElement('i');
+    i.className = icon.class;
+    someSection.appendChild(i);
+  });
 
-    // Bottom sections
-    const bottomSections = document.createElement('div');
-    bottomSections.classList.add('bottom-sections');
+  topSection.appendChild(greenSection);
+  topSection.appendChild(someSection);
 
-    // First bottom section (Quick Links)
-    const quickLinks = document.createElement('div');
-    quickLinks.classList.add('bottom-section');
+  // Bottom sections
+  const bottomSections = document.createElement('div');
+  bottomSections.classList.add('bottom-sections');
 
-    const quickLinksTitle = document.createElement('p');
-    quickLinksTitle.textContent = 'QUICK LINKS';
-    quickLinks.appendChild(quickLinksTitle);
+  // First bottom section (Quick Links)
+  const quickLinks = document.createElement('div');
+  quickLinks.classList.add('bottom-section');
 
-    const quickLinksList = document.createElement('ul');
-    quickLinksList.classList.add('footerLinks');
+  const quickLinksTitle = document.createElement('p');
+  quickLinksTitle.textContent = 'QUICK LINKS';
+  quickLinks.appendChild(quickLinksTitle);
 
-    const links = [
-        { href: 'index.html', text: 'HOME' },
-        { href: 'blogs.html', text: 'BLOG' },
-        { href: 'about.html', text: 'ABOUT' },
-        { href: 'contact.html', text: 'CONTACT' }
-    ];
+  const quickLinksList = document.createElement('ul');
+  quickLinksList.classList.add('footerLinks');
 
-    links.forEach(link => {
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = link.href;
-        a.textContent = link.text;
-        li.appendChild(a);
-        quickLinksList.appendChild(li);
-    });
+  const links = [
+    { href: 'index.html', text: 'HOME' },
+    { href: 'blogs.html', text: 'BLOG' },
+    { href: 'about.html', text: 'ABOUT' },
+    { href: 'contact.html', text: 'CONTACT' }
+  ];
 
-    quickLinks.appendChild(quickLinksList);
+  links.forEach((link) => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = link.href;
+    a.textContent = link.text;
+    li.appendChild(a);
+    quickLinksList.appendChild(li);
+  });
 
-    // Second bottom section (Subscribe)
-    const subscribeSection = document.createElement('div');
-    subscribeSection.classList.add('bottom-section');
+  quickLinks.appendChild(quickLinksList);
 
-    const subscribeTitle = document.createElement('p');
-    subscribeTitle.textContent = 'SUBSCRIBE';
-    subscribeSection.appendChild(subscribeTitle);
+  // Second bottom section (Subscribe)
+  const subscribeSection = document.createElement('div');
+  subscribeSection.classList.add('bottom-section');
 
-    const inputWrapper = document.createElement('div');
-    inputWrapper.classList.add('inputWrapper');
+  const subscribeTitle = document.createElement('p');
+  subscribeTitle.textContent = 'SUBSCRIBE';
+  subscribeSection.appendChild(subscribeTitle);
 
-    const emailInput = document.createElement('input');
-    emailInput.classList.add('emailInput');
-    emailInput.type = 'email';
-    emailInput.placeholder = 'Submit email';
-    inputWrapper.appendChild(emailInput);
+  const inputWrapper = document.createElement('div');
+  inputWrapper.classList.add('inputWrapper');
 
-    const submitBtn = document.createElement('button');
-    submitBtn.type = 'submit';
-    submitBtn.classList.add('submit-btn');
+  const emailInput = document.createElement('input');
+  emailInput.classList.add('emailInput');
+  emailInput.type = 'email';
+  emailInput.placeholder = 'Submit email';
+  inputWrapper.appendChild(emailInput);
 
-    const submitIcon = document.createElement('i');
-    submitIcon.classList.add('fa-solid', 'fa-caret-right');
-    submitBtn.appendChild(submitIcon);
-    
-    inputWrapper.appendChild(submitBtn);
-    subscribeSection.appendChild(inputWrapper);
+  const submitBtn = document.createElement('button');
+  submitBtn.type = 'submit';
+  submitBtn.classList.add('submit-btn');
 
-    // Third bottom section (Logo)
-    const logoSection = document.createElement('div');
-    logoSection.classList.add('bottom-section', 'logo-section');
-    const logoImg = document.createElement('img');
-    logoImg.classList.add('logoFooter');
-    logoImg.src = '/images/logo.png';
-    logoSection.appendChild(logoImg);
+  const submitIcon = document.createElement('i');
+  submitIcon.classList.add('fa-solid', 'fa-caret-right');
+  submitBtn.appendChild(submitIcon);
 
-    bottomSections.appendChild(quickLinks);
-    bottomSections.appendChild(subscribeSection);
-    bottomSections.appendChild(logoSection);
+  inputWrapper.appendChild(submitBtn);
+  subscribeSection.appendChild(inputWrapper);
 
-    // Append sections to footer
-    footer.appendChild(topSection);
-    footer.appendChild(bottomSections);
+  // Third bottom section (Logo)
+  const logoSection = document.createElement('div');
+  logoSection.classList.add('bottom-section', 'logo-section');
+  const logoImg = document.createElement('img');
+  logoImg.classList.add('logoFooter');
+  logoImg.src = '/images/logo.png';
+  logoSection.appendChild(logoImg);
 
-    return footer;
+  bottomSections.appendChild(quickLinks);
+  bottomSections.appendChild(subscribeSection);
+  bottomSections.appendChild(logoSection);
+
+  // Append sections to footer
+  footer.appendChild(topSection);
+  footer.appendChild(bottomSections);
+
+  return footer;
 }
 
 export function renderFooter() {
-    const footerElement = createFooter();
-    document.body.appendChild(footerElement);
+  const footerElement = createFooter();
+  document.body.appendChild(footerElement);
 }

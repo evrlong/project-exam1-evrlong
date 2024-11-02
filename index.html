@@ -1,51 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
 
-    <script src="https://kit.fontawesome.com/2b623f016d.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/2b623f016d.js"
+      crossorigin="anonymous"
+    ></script>
 
     <title>Camp Chronicles</title>
-</head> 
+  </head>
 
-<body>
-    
+  <body>
     <main>
+      <h1 id="headerTitle">Latest blogs</h1>
 
-        <h1> Latest blogs </h1>
+      <div class="sliderContainer">
+        <button id="previousBlogCards" class="arrow">
+          <i class="fas fa-chevron-left"></i>
+        </button>
 
-        <div class="sliderContainer">
-        <button id="previousBlogCards" class="arrow"><i class="fas fa-chevron-left"></i></button>
-        
         <div id="blogCardContainer">
-            <div class="blog-card" id="blogCard1"></div>
-            <div class="blog-card" id="blogCard2"></div>
-            <div class="blog-card" id="blogCard3"></div>
-            <div class="blog-card" id="blogCard4"></div>
-            </div>
-            <button id="nextBlogCards" class="arrow"><i class="fas fa-chevron-right"></i></button>
-
-            
+          <div class="blog-card" id="blogCard1"></div>
+          <div class="blog-card" id="blogCard2"></div>
+          <div class="blog-card" id="blogCard3"></div>
+          <div class="blog-card" id="blogCard4"></div>
         </div>
+        <button id="nextBlogCards" class="arrow">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
 
-        <div class="allBlogContainer"> 
-            <a id="allBlogs" class="allBlogs" href="blogs.html">All Blogs</a>
-        </div>
-        
+      <div class="allBlogContainer">
+        <a id="allBlogs" class="allBlogs" href="blogs.html">All Blogs</a>
+      </div>
     </main>
-    
 
-    <script type="module" src="script.js"></script>    
+    <script type="module" src="script.js"></script>
     <script type="module" src="js/index.js"></script>
-    
-</body>
-
+  </body>
 </html>
