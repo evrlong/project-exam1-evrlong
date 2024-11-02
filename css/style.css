@@ -8,16 +8,39 @@ body {
 }
 
 /* GENERAL STYLING */
-a {
-  font-size: 11px;
-}
 
+#headerTitle {
+  font-size: 2em;
+  font-weight: 700;
+  color: #3a3b39;
+  margin: 0px;
+  padding: 20px 0px;
+  text-align: center;
+}
+a {
+  font-size: 12px;
+  text-decoration: none; 
+  color: inherit;
+ 
+}
 p {
   font-weight: 700;
 }
 
+h4 {
+  text-decoration: none;
+}
+
+
+
 #about-section p {
   font-weight: 400;
+}
+
+.textContainer h2 {
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0px 0px 40px 0px;
 }
 
 footer {
@@ -103,7 +126,7 @@ nav ul li a {
 nav ul li:hover {
   text-decoration: underline;
   text-decoration-color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.3); /* Lysere bakgrunn ved hover */
+  background-color: rgba(255, 255, 255, 0.3); 
   box-shadow: 2px 2px 2px black;
 }
 /* ----- PAGE CONTENT ----- */
@@ -145,30 +168,137 @@ border-radius: 10px;
 }
 
 /* BLOGS PAGE */
+/* DETAIL PAGE */
+
+#postContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+}
+
+#postTitle { 
+  font-size: 2em;
+  font-weight: 700;
+  color: #2c3e50; 
+  margin: 20px 0px;
+  text-align: center; 
+}
+
+#postContent {
+  font-size: 1.2em;
+  line-height: 1.6; 
+  color: #34495e; 
+}
+
+#postContent p {
+  font-weight: 400;
+}
+
+.wp-block-image {
+  margin: 0px 0px;
+}
+
+.wp-block-image img {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for a floating effect */
+  max-width: 100%;
+  height: auto;
+  margin: 0px;
+}
+
+.wp-element-caption {
+  font-size: 0.8em;
+  color: #7f8c8d;
+}
+
+.wp-block-gallery {
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 1px;
+}
+
+
+
+/* CONTACT PAGE */
+
 /* ABOUT PAGE */
 .aboutContainer {
   flex-direction: row;
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
-  align-items: center;
   margin: 20px 0px;
+  gap: 20px;
+  padding: 3em;
 }
 
-.aboutContainer img {
-  width: 20em;
+#about-section img {
+  width: 25em;
   height: auto;
-  padding: 3em;
+  padding: 5em;;
 
+}
+
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.aboutText {
+  flex: 1 1 200px;
+  font-size: 1.2em;
+  max-width: 60%;
 }
 
 #about-section {
-  flex: 1; /* Tar opp all tilgjengelig plass */
-  padding: 3em;
+  justify-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; 
+  gap: 20px; /* Avstand mellom tekst og bilde */
 }
 
+.textContainer {
+  padding: 5em;
+  flex: 1; /* Gjør at tekstboksen kan ta opp tilgjengelig plass */
+  max-width: 50%; /* Begrenser bredden på tekstboksen */
+}
+
+.imageContainer img {
+  padding-right: 50px;
+  max-width: 100%; /* Sikrer at bildet ikke overskrider sin container */
+  height: auto;
+}
+
+
 /* CONTACT PAGE */
+.splitContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px 0px 0px 0px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.contact-info img {
+  width: 20em;
+  height: auto;
+}
 /* DETAILS PAGE */
 
 
@@ -185,24 +315,51 @@ border-radius: 10px;
   align-items: center;
 }
 
+
+
 .blog-card {
   display: flex;
   flex-direction: column;
   margin: 20px;
-  background-color: #f0f0f0;
-  box-shadow: 0.5px 0.5px 0.2px #0000002f;
-  width: 200px; 
+  background-color: #ffffff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 300px; /* Width of the card */
+  overflow: hidden; /* Prevents content overflow */
+  transition: transform 0.2s; /* Smooth hover effect */
+}
+
+.blog-card:hover {
+  transform: scale(1.02); /* Slightly enlarge on hover */
 }
 
 .blog-card h4 {
-  margin: 10px 0px 0px 2px;
+  margin: 20px; /* Margin around the title */
+  font-size: 1.2em; /* Title font size */
+  color: #333; /* Darker text color */
+  overflow: hidden; /* Prevents overflow */
+  text-overflow: ellipsis; /* Adds ellipsis for overflow text */
+  white-space: nowrap; /* Prevents line breaks */
 }
 
 .blog-card img {
-  width: 100%; /* Fyller bredden på kortet */
-  height: 250px; /* Sett en fast høyde for alle bilder */
-  object-fit: cover; /* Croppes for å fylle containeren */
+  width: 100%; /* Fills the width of the card */
+  height: 200px; /* Fixed height for images */
+  object-fit: cover; /* Ensures image covers the area */
+  border-bottom: 2px solid #e0e0e0; /* Separator between image and title */
 }
+
+.blog-card p {
+
+  margin: 10px; /* Margin around text content */
+  color: #666; /* Lighter text color */
+  font-size: 0.9em; /* Description font size */
+  height: 50px; /* Fixed height for text content */
+  overflow: hidden; /* Prevents overflow */
+  text-overflow: ellipsis; /* Adds ellipsis for overflow text */
+}
+
+
 
 #blogCardContainer {
   width: 100%;
@@ -342,6 +499,8 @@ ul {
   margin: auto;
 }
 
+
+
 /* Responsive footer for small screens */
 @media (max-width: 600px) {
   .some-section {
@@ -363,7 +522,7 @@ ul {
   }
 
   .blog-card {
-    width: 100%;
+    width: 420px;
   }
 .arrow { 
   display: none;
@@ -389,6 +548,36 @@ ul {
     color: white;
     text-align: center; /* Ensure <p> text is centered */
     margin: 0 auto; /* Center the <p> element itself */
+  }
+
+  /* About page mobile */
+
+  .textContainer {
+    padding: 1em;
+    max-width: 100%;
+  }
+
+  .textContainer h1 {
+    padding: 10px 0px;
+  }
+  
+  #about-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+
+  #about-section img {
+    padding: 1em;
+  }
+
+  .aboutText {
+    max-width: 100%;
+  }
+
+  .imageContainer img {
+    max-width: 100%; /* Sikrer at bildet ikke overskrider sin container */
+    height: auto;
   }
   
 
