@@ -1,37 +1,6 @@
 {
-    "semi": true,                    // Add semicolons at the end of statements
-    "singleQuote": true,             // Use single quotes instead of double quotes
-    "trailingComma": "none",         // No trailing commas in objects/arrays
-    "tabWidth": 2,                   // Set indentation level to 2 spaces
-    "useTabs": false,                // Use spaces instead of tabs for indentation
-    "htmlWhitespaceSensitivity": "ignore", // Handle whitespace in HTML
-    "arrowParens": "always",         // Include parentheses around arrow function parameters
-    "bracketSpacing": true,          // Ensure spaces between brackets in objects
-    "endOfLine": "lf",               // Use 'lf' (line feed) as the line ending
-    "printWidth": 80,                // Wrap lines that exceed 80 characters
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "html",
-          "printWidth": 120           // Increase print width for HTML for better readability
-        }
-      },
-      {
-        "files": "*.css",
-        "options": {
-          "parser": "css",
-          "singleQuote": false,       // Use double quotes in CSS
-          "printWidth": 120           // Set wider print width for CSS
-        }
-      },
-      {
-        "files": "*.js",
-        "options": {
-          "parser": "babel",          // Use Babel parser for modern JavaScript
-          "semi": false               // Omit semicolons in JS (optional preference)
-        }
-      }
-    ]
-  }
-
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "tabWidth": 2
+}
