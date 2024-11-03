@@ -7,6 +7,27 @@ body {
   margin: 1px;
 }
 
+/* pop up */
+.popup-message {
+  position: fixed; /* Fixed position to stay in the viewport */
+  bottom: 50%; /* Center vertically */
+  right: 50%; /* Center horizontally */
+  transform: translate(50%, 50%); /* Offset by half its width and height */
+  background-color: rgba(0, 128, 0, 0.8); /* Green background with some transparency */
+  color: white; /* Text color */
+  padding: 10px 20px; /* Padding around the text */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  z-index: 1000; /* High z-index to appear above other content */
+  transition: opacity 0.5s ease; /* Fade in/out transition */
+  opacity: 1; /* Start fully visible */
+}
+
+
+.popup-message.hide {
+  opacity: 0; /* Fade out */
+}
+
 /* GENERAL STYLING */
 
 #headerTitle {
@@ -184,11 +205,17 @@ border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
 }
 
+#postDate {
+  font-size: 1em;
+  color: #7f8c8d;
+  margin: 0px 0px 10px 0px;
+}
+
 #postTitle { 
   font-size: 2em;
   font-weight: 700;
   color: #2c3e50; 
-  margin: 20px 0px;
+  margin: 20px 0px 0px 0px;
   text-align: center; 
 }
 
@@ -228,6 +255,91 @@ border-radius: 10px;
 
 
 /* CONTACT PAGE */
+
+.splitContainer {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 35px 0px 35px;
+  flex-wrap: wrap;
+  margin: 20px 0px 0px 0px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  align-content: flex-end;
+}
+
+.formSection h1 , .contact-info h1 {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #3a3b39;
+  margin: 0px 10px;
+  padding: 20px 0px;
+}
+
+.contact-info h1{
+  margin: 0px;
+  padding: 20px 10px 20px 10px;
+}
+
+.contact-info p {
+  font-weight: 400;
+  font-size: 1em;
+  color: #3a3b39;
+  margin: 10px;
+  max-width: 100%;
+}
+
+.contact-info img {
+  max-width: 19em;
+  height: auto;
+  margin: 10px 10px 0px 50px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0px;
+}
+
+.formStyle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.formStyle input, textarea, .ctaSend {
+  background-color: rgba(0, 0, 0, 0.06);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 65%;
+  box-shadow: 0.5px -0.5px 0.8px #00000050;
+}
+
+.ctaSend {
+  background-color: #495335;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+
+.errorForm {
+  min-height: 20px; /* Reserve space for the error message */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center the icon and message */
+}
+
+#message {
+  padding-right: 50px; /* Space between icon and message */
+}
+
 
 /* ABOUT PAGE */
 .aboutContainer {
@@ -280,25 +392,7 @@ border-radius: 10px;
 }
 
 
-/* CONTACT PAGE */
-.splitContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 20px 0px 0px 0px;
-}
 
-.contact-info {
-  display: flex;
-  flex-direction: column;
-
-}
-
-.contact-info img {
-  width: 20em;
-  height: auto;
-}
 /* DETAILS PAGE */
 
 
@@ -503,12 +597,29 @@ ul {
 
 /* Responsive footer for small screens */
 @media (max-width: 600px) {
+
+  /* Header */
+
+  header {
+    position: fixed; /* Fixed position */
+    top: 0; /* Starts at the top */
+    left: 0; /* Aligns to the left */
+    right: 0; /* Aligns to the right */
+    z-index: 1000; /* Ensure it's above other content */
+    transition: top 0.3s; /* Smooth transition for sliding effect */
+  }
+  
+  body {
+    padding-top: 100px; /* Adjust based on your header height */
+  }
+  nav {
+   display: none;
+  }
   .some-section {
     padding: 40px;
     justify-content: space-around;
-
-    
   }
+
 
   .some-section i {
     font-size: 30px;
@@ -550,7 +661,7 @@ ul {
     margin: 0 auto; /* Center the <p> element itself */
   }
 
-  /* About page mobile */
+  /* AboutMob */
 
   .textContainer {
     padding: 1em;
@@ -580,6 +691,76 @@ ul {
     height: auto;
   }
   
+/* ContactMob */
+.splitContainer {
+  flex-direction: column-reverse;
+  justify-content: center;
+}  
 
-  
+.contact-info {
+ width: 100%;
+  height: auto;
+  margin: 10px 0px 0px 0px;
+}
+.contact-info h1 {
+  padding: 40px 10px 5px 10px;
+}
+
+.contact-info img {
+  justify-self: center;
+  max-width: 10em;
+  height: auto;
+  margin: 70px 0px 0px 30px;
+}
+
+.contact-info p {
+  font-size: 1em;
+  color: #3a3b39;
+  margin: 0px 10px;
+  max-width: 100%;
+}
+
+/* move ctaSend button to the right */
+.ctaSend {
+  margin: 10px 0px 10px 10px;
+  right: 0px;
+}
+
+/* Burger menu */
+
+
+.burger-btn {
+  position: fixed; /* Fixed position so it stays in view */
+  top: 20px; /* Adjust as needed for vertical positioning */
+  right: 20px; /* Adjust as needed for horizontal positioning */
+  z-index: 2000; /* Ensure it's above other elements */
+color: #f8f9fa;
+  padding: 10px; /* Optional: Padding for better click area */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: top 0.3s; /* Smooth transition for hiding/showing */
+}
+
+.burger-menu {
+  display: none; /* Initially hide the burger menu */
+  position: absolute; /* Absolute positioning */
+  top: 60px; /* Adjust based on your design */
+  right: 0px; /* Align to the right */
+  background-color: white; /* Background color */
+  border: 1px solid #ccc; /* Optional border */
+  z-index: 2000; /* Make sure it appears above other elements */
+}
+
+.burger-menu.active {
+  display: block; /* Show when active */
+}
+
+.burger-menu a {
+  display: block; /* Block display for links */
+  padding: 10px; /* Padding for links */
+  text-decoration: none; /* Remove underline */
+  color: black; /* Text color */
+}
+
+
+
 }

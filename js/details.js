@@ -24,12 +24,15 @@ function renderPostDetails(post) {
   const titleElement = document.getElementById('postTitle');
   titleElement.textContent = post?.title?.rendered || 'No title';
 
+  const dateElement = document.getElementById('postDate');  
+  const dateTime = post?.date || 'No date';
+  const dateOnly = dateTime.split('T')[0];
+  dateElement.textContent = dateOnly || 'No date';
+
   const contentElement = document.getElementById('postContent');
   contentElement.innerHTML = post?.content?.rendered || 'No content';
 
-  const imageElement = document.getElementById('postImage');
-  imageElement.src = post?.media?.source_url || '';
-  imageElement.alt = post?.title?.rendered || 'No title';
+ 
 }
 
 renderDetailPage(); // Render the post details
