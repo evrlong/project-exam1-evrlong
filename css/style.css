@@ -30,6 +30,8 @@ body {
 
 /* GENERAL STYLING */
 
+
+
 #headerTitle {
   font-size: 2em;
   font-weight: 700;
@@ -387,7 +389,7 @@ border-radius: 10px;
 
 .imageContainer img {
   padding-right: 50px;
-  max-width: 100%; /* Sikrer at bildet ikke overskrider sin container */
+  max-width: 90%; 
   height: auto;
 }
 
@@ -585,17 +587,19 @@ ul {
 
 
 /* Responsive footer for small screens */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
   /* Header */
 
   header {
-    position: fixed; /* Fixed position */
-    top: 0; /* Starts at the top */
-    left: 0; /* Aligns to the left */
-    right: 0; /* Aligns to the right */
-    z-index: 1000; /* Ensure it's above other content */
-    transition: top 0.3s; /* Smooth transition for sliding effect */
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    z-index: 1000; 
+    transition: top 0.3s; /* transition for sliding effect */
+    max-height: 100px;
+    min-height: 80px;
   }
   
   body {
@@ -682,7 +686,8 @@ ul {
   }
 
   .imageContainer img {
-    max-width: 100%; /* Sikrer at bildet ikke overskrider sin container */
+    
+    max-width: 80%; /* Sikrer at bildet ikke overskrider sin container */
     height: auto;
   }
   
@@ -724,7 +729,7 @@ ul {
 /* Burger menu */
 
 
-.burger-btn {
+.burgerBtn {
   position: fixed; 
   top: 0.8em; 
   right: 1em; 
@@ -738,21 +743,39 @@ color: #f8f9fa;
   background-color: #00000060;
 }
 
-.burger-menu {
-  display: none; /* Initially hide the burger menu */
-  position: absolute; /* Absolute positioning */
-  top: 60px; /* Adjust based on your design */
-  right: 0px; /* Align to the right */
-  background-color: white; /* Background color */
-  border: 1px solid #ccc; /* Optional border */
-  z-index: 2000; /* Make sure it appears above other elements */
+.burgerMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px; /* Width of the menu */
+  height: 100%; /* Full height */
+  background-color: rgba(255, 255, 255, 0.8); /* Background color */
+  color: black; /* Text color */
+  padding: 20px; /* Padding inside the menu */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for transform and opacity */
+  transform: translateX(100%); /* Hide offscreen */
+  opacity: 0; /* Fully transparent */
+  visibility: hidden; /* Make it non-interactive */
+  z-index: 2000;
+}
+/* Show the menu when active with animation*/
+.burgerMenu.active {
+  transform: translateX(0); /* Slide in from the right */
+  opacity: 1; /* Fully visible */
+  visibility: visible; /* Make it interactive */
 }
 
-.burger-menu.active {
-  display: block; /* Show when active */
+
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
 }
 
-.burger-menu a {
+
+.burgerMenu a {
   display: block; /* Block display for links */
   padding: 10px; /* Padding for links */
   text-decoration: none; /* Remove underline */
