@@ -34,6 +34,25 @@ body {
  visibility: hidden; /* Hide the menu by default in deskop view */
 }
 
+/* Overlay styles */
+#overlay {
+  display: none; /* Hidden by default */
+  position: fixed; /* Position it to cover the entire viewport */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  justify-content: center; /* Center the content */
+  align-items: center; /* Center the content */
+  z-index: 1000; /* Ensure it is on top of other elements */
+}
+
+#enlargedImage {
+  max-width: 90%; /* Maximum width for the enlarged image */
+  max-height: 90%; /* Maximum height for the enlarged image */
+}
+
 
 
 #headerTitle {
