@@ -23,7 +23,7 @@ function createBlogCard(post) {
   const anchorElement = document.createElement('a');
   anchorElement.href = `details.html?id=${post.id}`; // Set the link to details.html with the post ID as a query parameter
   const cardElement = document.createElement('div');
-  cardElement.className = 'blog-card'; // Set the class to blog-card
+  cardElement.className = 'blogCard'; // Set the class to blogCard
 
   const imageUrl = post?.media?.source_url || '';
   const title = post?.title?.rendered || 'Empty title';

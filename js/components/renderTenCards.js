@@ -40,7 +40,7 @@ function renderBlogCardsSet(postsToRender) {
     anchorElement.href = `details.html?id=${post.id}`; // Set the link to details.html with the post ID as a query parameter
 
     const cardElement = document.createElement('div');
-    cardElement.className = 'blog-card'; // Set the class to blog-card
+    cardElement.className = 'blogCard browseCard'; // Set the class to blogCard and browseCard
 
     anchorElement.appendChild(cardElement); // Wrap the div inside the anchor
 

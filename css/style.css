@@ -400,34 +400,23 @@ border-radius: 10px;
 /* blog card */
 
 
-.blogCardContainer {
-  width: 100%;
-  flex-direction: row;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-
-
-.blog-card {
+.blogCard {
   display: flex;
   flex-direction: column;
   margin: 20px;
   background-color: #ffffff; /* White background */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  width: 300px; /* Width of the card */
+  width: 200px; /* Width of the card */
   overflow: hidden; /* Prevents content overflow */
   transition: transform 0.2s; /* Smooth hover effect */
 }
 
-.blog-card:hover {
+.blogCard:hover {
   transform: scale(1.02); /* Slightly enlarge on hover */
 }
 
-.blog-card h4 {
+.blogCard h4 {
   margin: 20px; /* Margin around the title */
   font-size: 1.2em; /* Title font size */
   color: #333; /* Darker text color */
@@ -436,14 +425,14 @@ border-radius: 10px;
   white-space: nowrap; /* Prevents line breaks */
 }
 
-.blog-card img {
+.blogCard img {
   width: 100%; /* Fills the width of the card */
   height: 200px; /* Fixed height for images */
   object-fit: cover; /* Ensures image covers the area */
   border-bottom: 2px solid #e0e0e0; /* Separator between image and title */
 }
 
-.blog-card p {
+.blogCard p {
 
   margin: 10px; /* Margin around text content */
   color: #666; /* Lighter text color */
@@ -564,9 +553,9 @@ ul {
 }
 
 .bottom-section {
-  flex: 1; /* Hver seksjon tar lik bredde */
-  text-align: center; /* Sentrerer innholdet */
-  padding: 20px; /* Padding for bunnseksjonene */
+  flex: 1; 
+  text-align: center; 
+  padding: 20px; 
 }
 
 .bottom-section p {
@@ -632,9 +621,15 @@ ul {
 
   }
 
-  .blog-card {
-    width: 420px;
+  .blogCard {
+    width: 285px;
   }
+/* Resize blogCard on blogpage, mobile view*/
+  .browseCard {
+    width: 150px;
+  }
+
+ 
 .arrow { 
   display: none;
 }
@@ -730,14 +725,17 @@ ul {
 
 
 .burger-btn {
-  position: fixed; /* Fixed position so it stays in view */
-  top: 20px; /* Adjust as needed for vertical positioning */
-  right: 20px; /* Adjust as needed for horizontal positioning */
-  z-index: 2000; /* Ensure it's above other elements */
+  position: fixed; 
+  top: 0.8em; 
+  right: 1em; 
+  z-index: 2000; 
 color: #f8f9fa;
-  padding: 10px; /* Optional: Padding for better click area */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: top 0.3s; /* Smooth transition for hiding/showing */
+  padding: 5px; 
+  cursor: pointer; 
+  transition: top 0.3s;
+  font-weight: 900;
+  font-size: 25px;
+  background-color: #00000060;
 }
 
 .burger-menu {
