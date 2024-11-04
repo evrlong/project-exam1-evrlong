@@ -601,13 +601,15 @@ ul {
     max-height: 100px;
     min-height: 80px;
   }
+
+  .navHeader {
+    display: none;
+  }
   
   body {
     padding-top: 100px; /* Adjust based on your header height */
   }
-  nav {
-   display: none;
-  }
+  
   .some-section {
     padding: 40px;
     justify-content: space-around;
@@ -745,11 +747,14 @@ color: #f8f9fa;
 
 .burgerMenu {
   position: fixed;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   top: 0;
   right: 0;
-  width: 250px; /* Width of the menu */
+  width: 100%;
   height: 100%; /* Full height */
-  background-color: rgba(255, 255, 255, 0.8); /* Background color */
+  background-color: rgba(255, 255, 255, 0.929); /* Background color */
   color: black; /* Text color */
   padding: 20px; /* Padding inside the menu */
   transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for transform and opacity */
@@ -761,7 +766,7 @@ color: #f8f9fa;
 /* Show the menu when active with animation*/
 .burgerMenu.active {
   transform: translateX(0); /* Slide in from the right */
-  opacity: 1; /* Fully visible */
+  opacity: 2; /* Fully visible */
   visibility: visible; /* Make it interactive */
 }
 
@@ -776,8 +781,11 @@ color: #f8f9fa;
 
 
 .burgerMenu a {
+  font-weight: 600;
+  font-size: 20px;
+  margin: 10px 0px;
+  padding: 20px 60px;
   display: block; /* Block display for links */
-  padding: 10px; /* Padding for links */
   text-decoration: none; /* Remove underline */
   color: black; /* Text color */
 }
