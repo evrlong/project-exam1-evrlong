@@ -30,6 +30,10 @@ body {
 
 /* GENERAL STYLING */
 
+.burgerMenu {
+ visibility: hidden; /* Hide the menu by default in deskop view */
+}
+
 
 
 #headerTitle {
