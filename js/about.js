@@ -53,6 +53,7 @@ async function fetchAboutContent() {
       
       const imageElement = document.createElement('img');
       imageElement.src = mediaData.source_url;
+      imageElement.classList.add('aboutImage');
       imageElement.alt = 'Featured Image';
       imageContainer.appendChild(imageElement);
 

@@ -377,12 +377,7 @@ border-radius: 10px;
   padding: 3em;
 }
 
-#about-section img {
-  width: 25em;
-  height: auto;
-  padding: 5em;;
 
-}
 
 .aboutContainer {
   display: flex;
@@ -408,13 +403,24 @@ border-radius: 10px;
   padding: 5em;
   flex: 1; /* Gjør at tekstboksen kan ta opp tilgjengelig plass */
   max-width: 50%; /* Begrenser bredden på tekstboksen */
+  
+}
+.imageContainer {
+  flex: 1; /* Gjør at bildet kan ta opp tilgjengelig plass */
+  max-width: 50%; /* Begrenser bredden på bildet */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.imageContainer img {
-  padding-right: 50px;
-  max-width: 90%; 
+.aboutImage {
+  max-width: 350px; 
   height: auto;
+  border-radius: 40px;
+  margin: 40px 0px;
 }
+
+
 
 
 
@@ -702,16 +708,12 @@ ul {
     gap: 1em;
   }
 
-  #about-section img {
-    padding: 1em;
-  }
 
   .aboutText {
     max-width: 100%;
   }
 
   .imageContainer img {
-    
     max-width: 80%; /* Sikrer at bildet ikke overskrider sin container */
     height: auto;
   }
