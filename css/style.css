@@ -265,6 +265,37 @@ border-radius: 10px;
 }
 
 /* BLOGS PAGE */
+
+.showMoreBtn {
+  background-color: #5555552f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 20px;
+  margin: 5px;
+  height: 30px;
+  font-weight: 400;
+  font-size: 13px;
+  border: none;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.showMoreBtn:hover {
+  background-color: #49533576;
+  cursor: pointer;
+  box-shadow: 1px 1px 0.8px #00000050;
+  opacity: 0.8; /* Fade effect */
+}
+
+.showMoreBtn:disabled {
+  background-color: #5555552f;
+  opacity: 0.6; /* Fade effect */
+  box-shadow: none;
+  cursor: default;
+}
+
 /* DETAIL PAGE */
 
 #postContainer {
