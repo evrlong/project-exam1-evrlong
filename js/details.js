@@ -1,6 +1,6 @@
 // details.js: This is the main file that will be used to render the blog post details on the details.html page.
 
-import { fetchData } from './data/fetchData.js';
+import { fetchData } from './data/fetchDataWithMedia.js';
 
 // Fetch data for a single post
 export async function renderDetailPage() {

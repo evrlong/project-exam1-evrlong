@@ -1,4 +1,4 @@
-import { fetchData } from './js/data/fetchData.js';
+import { fetchData } from './js/data/fetchDataWithMedia.js';
 import { renderHeader } from './js/components/headerComponent.js';
 import { renderFooter } from './js/components/footerComponent.js';
 import { createBurgerMenu } from './js/components/burgerMenu.js';

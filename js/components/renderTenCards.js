@@ -1,10 +1,13 @@
 //renderTenCards.js: This file will be used to render the blog cards on the blogs.html page.
 
-import { fetchData } from '../data/fetchData.js'; // Path to fetchData
+import { fetchData } from '../data/fetchDataWithMedia.js'; // Path to fetchData
 
 let currentPage = 1; // Start at the first page
 const postsPerPage = 10; // Number of posts to fetch per page
 let posts = []; // To store all posts
+
+const loader = document.getElementById('loader');
+const loadedContent = document.querySelector('.loadedContent');
 
 export async function renderInitialBlogCards() {
   await renderBlogCards();
@@ -17,6 +20,8 @@ export async function showMoreBlogCards() {
 
 async function renderBlogCards() {
   try {
+    loader.style.display = "block";
+    loadedContent.style.display = "none";
     // Fetch posts for the current page
     const fetchedPosts = await fetchData(postsPerPage, currentPage);
 
@@ -29,6 +34,9 @@ async function renderBlogCards() {
     renderBlogCardsSet(fetchedPosts);
   } catch (error) {
     console.error('Error rendering blog cards:', error);
+  } finally {
+    loader.style.display = "none";
+    loadedContent.style.display = "block";
   }
 }
 

@@ -7,6 +7,35 @@ body {
   margin: 1px;
 }
 
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #f3f3f3; /* Lys grå bakgrunn */
+  border-top: 5px solid #db8a34; /* Blå forgrunn */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  padding: 10px;
+  margin: 40px auto; /* Sentrer spinneren */
+}
+
+.error {
+  color: rgb(0, 0, 0);
+  background-color: #00000006;
+  font-size: 1.2em;
+  justify-self: center;
+  padding: 30px;
+  margin: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: red;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.64);
+}
+
+.loadedContent {
+  display: flex;
+  justify-content: center;
+}
+
 /* pop up */
 .popup-message {
   position: fixed; /* Fixed position to stay in the viewport */
@@ -21,6 +50,12 @@ body {
   z-index: 1000; /* High z-index to appear above other content */
   transition: opacity 0.5s ease; /* Fade in/out transition */
   opacity: 1; /* Start fully visible */
+}
+
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 
@@ -200,17 +235,33 @@ border-radius: 10px;
   border: none;
 }
 
-.allBlogsBtn {
-  padding: 10px;
-  color: #333;
-  background-color: aqua;
+
+.allBlogs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.128);
   font-size: 20px;
-  margin: 15px;
+  margin: 5px;
   height: 30px;
   border-radius: 10px;
-  font-weight: bold;
+  font-weight: 600;
   border: none;
-  box-shadow: 1px 1px 0.8px #00000050;
+  border-color: #0000005a;
+  border-style: solid;
+  border-width: 0.02px;
+}
+
+.allBlogContainer {
+  margin: 40px 0px;
+}
+
+.allBlogContainer a {
+  font-size: 16px;
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px
 }
 
 /* BLOGS PAGE */
