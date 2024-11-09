@@ -45,6 +45,7 @@ async function renderBlogCards() {
     if (fetchedPosts.length < postsPerPage) {
       showMoreBtn.disabled = true; // Disable the button
       showMoreBtn.style.cursor = 'disabled'; // Change the cursor to disabled
+      showMoreBtn.textContent = 'No more posts'; // Change the text
     }
 
     console.log('postssss', posts);
