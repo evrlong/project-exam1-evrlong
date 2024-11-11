@@ -1,87 +1,119 @@
+// renderBlogCard.js
+
 import { fetchData } from '../data/fetchDataWithMedia.js';
-import { renderBlogCardsSet } from './blogCardRenderer.js';
 
-let currentPage = 1; // Start at the first page
-const postsPerPage = 4; // Number of posts to fetch per page
-let posts = []; // To store all posts
+let currentPage = 1;
+const postsPerPage = 4;
 
-// Referanser til loader- og loadedContent-elementene
 const loader = document.getElementById('loader');
 const loadedContent = document.querySelector('.loadedContent');
 const nextBlogCardsButton = document.getElementById('nextBlogCards');
 const previousBlogCardsButton = document.getElementById('previousBlogCards');
 
-document
-  .getElementById('nextBlogCards')
-  .addEventListener('click', renderNextBlogCards);
-document
-  .getElementById('previousBlogCards')
-  .addEventListener('click', renderPreviousBlogCards);
+// Set up event listeners for pagination
+nextBlogCardsButton.addEventListener('click', renderNextBlogCards);
+previousBlogCardsButton.addEventListener('click', renderPreviousBlogCards);
 
+// Main function to fetch and render blog cards
 export async function renderBlogCard() {
   try {
-    // Vis loaderen og skjul innholdet mens vi henter data
-    loader.style.display = "block";
-    loadedContent.style.display = "none";
+    toggleLoader(true);
 
-    // Fetch posts for the current page
-    posts = await fetchData(postsPerPage, currentPage);
+    const posts = await fetchData(postsPerPage, currentPage);
 
-    // Render bloggkortene hvis de finnes
     if (posts && posts.length > 0) {
-      renderBlogCardsSet(posts, 'blogCardContainer'); // Pass the posts and container ID
-
-      // Check if fewer than 4 posts were returned
-      if (posts.length < postsPerPage) {
-        nextBlogCardsButton.style.opacity = '0.5';
-        nextBlogCardsButton.style.pointerEvents = 'none'; // Make it unclickable
-      } else {
-        nextBlogCardsButton.style.opacity = '1';
-        nextBlogCardsButton.style.pointerEvents = 'auto'; // Make it clickable
-      }
+      renderBlogCardsSet(posts, 'blogCardContainer');
+      toggleNextButton(posts.length === postsPerPage); // Enable "Next" button if there are more posts to load
     } else {
       console.log('No more posts available.');
-      nextBlogCardsButton.style.opacity = '0.5';
-      nextBlogCardsButton.style.pointerEvents = 'none'; // Make it unclickable if no posts
+      toggleNextButton(false); // Disable "Next" button if there are no more posts
+      showEndOfPostsMessage(); // Optional: Show a message indicating end of posts
     }
   } catch (error) {
     console.error('Error rendering blog cards:', error);
   } finally {
-    // Skjul loaderen og vis innholdet når alt er ferdig
-    loader.style.display = "none";
-    loadedContent.style.display = "block";
+    toggleLoader(false);
   }
 }
 
-// Function to render the next set of blog cards
-// Function to render the next set of blog cards
+// Helper function to toggle loader visibility
+function toggleLoader(isLoading) {
+  loader.style.display = isLoading ? "block" : "none";
+  loadedContent.style.display = isLoading ? "none" : "block";
+}
+
+// Helper function to render a set of blog cards
+function renderBlogCardsSet(posts, containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  container.innerHTML = ''; // Clear previous content
+
+  posts.forEach((post) => {
+    const blogCard = createBlogCard(post);
+    container.appendChild(blogCard);
+  });
+}
+
+// Helper function to create a single blog card
+function createBlogCard(post) {
+  const anchorElement = document.createElement('a');
+  anchorElement.href = `details.html?id=${post.id}`;
+
+  const cardElement = document.createElement('div');
+  cardElement.className = 'blogCard';
+
+  if (post.media?.source_url) {
+    const img = document.createElement('img');
+    img.src = post.media.source_url;
+    img.alt = `Image for ${post.title.rendered}`;
+    cardElement.appendChild(img);
+  }
+
+  const titleElement = document.createElement('h4');
+  titleElement.textContent = post.title.rendered || 'Empty title';
+  cardElement.appendChild(titleElement);
+
+  anchorElement.appendChild(cardElement);
+  return anchorElement;
+}
+
+// Pagination functions
 async function renderNextBlogCards() {
-  currentPage++; // Move to the next page
-  await renderBlogCard(); // Fetch and render posts for the new page
-  updatePreviousButton(); // Oppdater previous-knappen etter å ha navigert til neste side
+  currentPage++;
+  await renderBlogCard();
+  updatePreviousButton();
 }
 
-// Function to render the previous set of blog cards
 async function renderPreviousBlogCards() {
-  if (currentPage === 1) {
-    return; // Hvis på første side, gjør ingenting
+  if (currentPage > 1) {
+    currentPage--;
+    await renderBlogCard();
+    updatePreviousButton();
   }
-
-  currentPage--; // Gå til forrige side
-  await renderBlogCard(); // Hent og render nye innlegg
-  updatePreviousButton(); // Oppdater previous-knappen etter å ha navigert til forrige side
 }
 
-// Check if we are on the first page and update the previous button
+// Helper function to toggle button states
+function toggleNextButton(isEnabled) {
+  nextBlogCardsButton.style.opacity = isEnabled ? '1' : '0.5';
+  nextBlogCardsButton.style.pointerEvents = isEnabled ? 'auto' : 'none';
+}
+
 function updatePreviousButton() {
-  if (currentPage === 1) {
-    previousBlogCardsButton.style.opacity = '0.5';
-    previousBlogCardsButton.style.pointerEvents = 'none'; // Deaktiver klikkbarhet
-  } else {
-
-    previousBlogCardsButton.style.opacity = '1';
-    previousBlogCardsButton.style.pointerEvents = 'auto'; // Aktiver klikkbarhet
-  }
+  const isEnabled = currentPage > 1;
+  previousBlogCardsButton.style.opacity = isEnabled ? '1' : '0.5';
+  previousBlogCardsButton.style.pointerEvents = isEnabled ? 'auto' : 'none';
 }
 
+// Optional: Show a message when there are no more posts to load
+function showEndOfPostsMessage() {
+  const container = document.getElementById('blogCardContainer');
+  const message = document.createElement('p');
+  message.textContent = 'No more posts available.';
+  message.className = 'end-of-posts-message'; // Optional styling class
+  container.appendChild(message);
+}
+
+// Initialize by rendering the first page
 updatePreviousButton();
+renderBlogCard();

@@ -8,61 +8,70 @@ const loader = document.getElementById('loader');
 const loadedContent = document.querySelector('.loadedContent');
 const showMoreBtn = document.querySelector('.showMoreBtn'); // "Show More" button
 
+// Function to render the initial blog cards
 export async function renderInitialBlogCards() {
   await renderBlogCards();
 }
 
+// Function to load more blog cards when "Show More" is clicked
 export async function showMoreBlogCards() {
-  console.log('Show more blog cards', currentPage);
-  currentPage++;
+  console.log('Show more blog cards, current page:', currentPage);
+  currentPage++;  // Increment page number
+  console.log('Fetching page:', currentPage);  // Log the current page before fetching
   await renderBlogCards();
 }
 
+// Function to fetch and render the blog cards
 async function renderBlogCards() {
+  let fetchedPosts = []; // Initialize fetchedPosts outside of try-catch
   try {
-    loader.style.display = "block";
-    loadedContent.style.display = "none";
+    loader.style.display = "block"; // Show loader
+    loadedContent.style.display = "none"; // Hide loaded content while loading
 
     // Fetch posts for the current page
-    const fetchedPosts = await fetchData(postsPerPage, currentPage);
-    console.log('current page', currentPage);
-    console.log('fetched posts', fetchedPosts);
+    fetchedPosts = await fetchData(postsPerPage, currentPage);
+    console.log('Fetched posts for page:', currentPage);
+    console.log(fetchedPosts);  // Log fetched posts to check the data
 
-    // Check if fetchedPosts is null or undefined
-    if (!fetchedPosts) {
-      console.log('No posts returned.');
-      showMoreBtn.style.display = 'none'; // Hide the button
-      return; // Exit the function early if no posts are returned
-    }
-
-    if (fetchedPosts.length === 0) {
-      console.log('No more posts available.');
-      showMoreBtn.style.display = 'none'; // Hide the button
+    // If no posts were fetched, stop the process early
+    if (!fetchedPosts || fetchedPosts.length === 0) {
+      console.log('No posts available.');
+      showMoreBtn.style.display = 'none'; // Hide "Show More" button
+      loader.style.display = "none"; // Hide loader
+      loadedContent.style.display = "block"; // Show content
       return;
     }
 
-    // If fewer posts than expected are fetched, it means we've reached the last page
+    // If fewer than expected posts were fetched, we're on the last page
     if (fetchedPosts.length < postsPerPage) {
-      showMoreBtn.disabled = true; // Disable the button
-      showMoreBtn.style.cursor = 'disabled'; // Change the cursor to disabled
-      showMoreBtn.textContent = 'No more posts'; // Change the text
+      showMoreBtn.disabled = true;
+      showMoreBtn.style.cursor = 'disabled';
+      showMoreBtn.textContent = 'No more posts'; // Change button text
+    } else {
+      showMoreBtn.style.display = 'block'; // Ensure button is visible when more posts are available
     }
 
-    console.log('postssss', posts);
-    posts = posts.concat(fetchedPosts); // Combine new posts with existing ones
-    renderBlogCardsSet(fetchedPosts);
+    // Add fetched posts to the list of posts
+    posts = posts.concat(fetchedPosts);
+    renderBlogCardsSet(fetchedPosts); // Render the fetched posts
 
   } catch (error) {
     console.error('Error rendering blog cards:', error);
   } finally {
-    loader.style.display = "none";
-    loadedContent.style.display = "block";
+    loader.style.display = "none"; // Hide loader after completion
+    loadedContent.style.display = "block"; // Show content after loading
   }
 }
 
-
+// Function to render the fetched blog cards on the page
 function renderBlogCardsSet(postsToRender) {
-  const container = document.getElementById('blogCardContainer'); // Make sure to create this container in your HTML
+  const container = document.getElementById('blogCardContainer'); // Ensure this element exists in your HTML
+
+  // Check if container exists before attempting to append elements
+  if (!container) {
+    console.error('Blog card container not found!');
+    return;
+  }
 
   postsToRender.forEach((post) => {
     const anchorElement = document.createElement('a');
@@ -76,6 +85,7 @@ function renderBlogCardsSet(postsToRender) {
     const imageUrl = post.media?.source_url || '';
     const title = post.title?.rendered || 'Empty title';
 
+    // Add image if available
     if (imageUrl) {
       const img = document.createElement('img');
       img.src = imageUrl;
@@ -83,6 +93,7 @@ function renderBlogCardsSet(postsToRender) {
       cardElement.appendChild(img);
     }
 
+    // Add the title
     const titleElement = document.createElement('h4');
     titleElement.textContent = title;
     cardElement.appendChild(titleElement);

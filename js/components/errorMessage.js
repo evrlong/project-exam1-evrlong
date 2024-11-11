@@ -5,12 +5,6 @@ export function showErrorMessage(container) {
   const message = ' ❌ ' + ' ' + ' Oops, something went wrong! Please try again later'
   
 
-  // Check if the container is found
-  if (!container) {
-    console.error('Error: Container not found');
-    return;
-  }
-
   // Clear the container content (remove everything inside)
   container.innerHTML = '';
 
