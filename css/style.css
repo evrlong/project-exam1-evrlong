@@ -880,6 +880,7 @@ ul {
 
 
 .burgerBtn {
+  display: block;
   position: fixed; 
   top: 0.8em; 
   right: 1em; 
