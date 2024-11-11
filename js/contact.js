@@ -12,7 +12,7 @@ const fields = [
     placeholder: 'Email Address',
     type: 'email',
     errorId: 'emailError',
-    errorMsg: 'Invalid Email Address',
+    errorMsg: '⚠️ Invalid Email Address',
   },
   {
     name: 'subject',
