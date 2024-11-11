@@ -71,6 +71,10 @@ body {
  visibility: hidden; /* Hide the menu by default in deskop view */
 }
 
+.burgerBtn {
+  display: none; /* Hide the burger button by default in desktop view */
+}
+
 /* Overlay styles */
 #overlay {
   display: none; /* Hidden by default */

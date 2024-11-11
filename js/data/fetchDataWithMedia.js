@@ -1,6 +1,10 @@
 import { showErrorMessage } from '../components/errorMessage.js';
 
-const BASE_URL = 'https://camp.evrlong.one/wp-json/wp/v2';
+export const BASE_URL = 'https://camp.evrlong.one/wp-json/wp/v2';
+
+
+// Function to count the number of posts
+
 
 // Helper function to fetch media data
 export async function fetchMedia(mediaId) {
@@ -53,6 +57,8 @@ export async function fetchData(perPage = 10, page = 1, postId = null) {
     displayErrorMessage('An error occurred while fetching data.');
     return null;
   }
+
+  
 }
 
 // Display error message
@@ -128,3 +134,4 @@ if (showMoreBtn) {
     currentPage++;
   });
 }
+

@@ -5,3 +5,4 @@ import { renderBlogCard } from './components/renderBlogCard.js'; // import rende
 document.addEventListener('DOMContentLoaded', () => {
   renderBlogCard(); // Render the blog cards
 });
+

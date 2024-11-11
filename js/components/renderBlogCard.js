@@ -1,6 +1,7 @@
 // renderBlogCard.js
 
 import { fetchData } from '../data/fetchDataWithMedia.js';
+import { BASE_URL } from '../data/fetchDataWithMedia.js';
 
 let currentPage = 1;
 const postsPerPage = 4;
@@ -14,20 +15,44 @@ const previousBlogCardsButton = document.getElementById('previousBlogCards');
 nextBlogCardsButton.addEventListener('click', renderNextBlogCards);
 previousBlogCardsButton.addEventListener('click', renderPreviousBlogCards);
 
+
+// Function to count the total number of posts
+async function countPosts() {
+  try {
+      const response = await fetch(`${BASE_URL}/posts?_fields=id&per_page=1`);
+      if (!response.ok) {
+          throw new Error('Failed to fetch posts');
+      }
+
+      const totalPostsCount = response.headers.get('X-WP-Total');
+      return parseInt(totalPostsCount, 10);
+  } catch (error) {
+      console.error('Error counting posts:', error);
+      return 0;
+  }
+}
+
+
 // Main function to fetch and render blog cards
 export async function renderBlogCard() {
   try {
     toggleLoader(true);
 
+    // Get the total post count using countPosts()
+    const totalPostsCount = await countPosts();
+
     const posts = await fetchData(postsPerPage, currentPage);
 
     if (posts && posts.length > 0) {
       renderBlogCardsSet(posts, 'blogCardContainer');
-      toggleNextButton(posts.length === postsPerPage); // Enable "Next" button if there are more posts to load
+
+      // Check if there are more posts based on the total post count
+      const hasMorePosts = posts.length === postsPerPage && currentPage * postsPerPage < totalPostsCount;
+      toggleNextButton(hasMorePosts); 
     } else {
       console.log('No more posts available.');
-      toggleNextButton(false); // Disable "Next" button if there are no more posts
-      showEndOfPostsMessage(); // Optional: Show a message indicating end of posts
+      toggleNextButton(false); // Disable Next button if no posts left
+      showEndOfPostsMessage(); // Optional: Show message for no more posts
     }
   } catch (error) {
     console.error('Error rendering blog cards:', error);
@@ -35,6 +60,7 @@ export async function renderBlogCard() {
     toggleLoader(false);
   }
 }
+
 
 // Helper function to toggle loader visibility
 function toggleLoader(isLoading) {
@@ -98,6 +124,8 @@ function toggleNextButton(isEnabled) {
   nextBlogCardsButton.style.opacity = isEnabled ? '1' : '0.5';
   nextBlogCardsButton.style.pointerEvents = isEnabled ? 'auto' : 'none';
 }
+
+
 
 function updatePreviousButton() {
   const isEnabled = currentPage > 1;
