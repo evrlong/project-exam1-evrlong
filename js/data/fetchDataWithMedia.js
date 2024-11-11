@@ -3,7 +3,7 @@ import { showErrorMessage } from '../components/errorMessage.js';
 const BASE_URL = 'https://camp.evrlong.one/wp-json/wp/v2';
 
 // Helper function to fetch media data
-async function fetchMedia(mediaId) {
+export async function fetchMedia(mediaId) {
   try {
     const response = await fetch(`${BASE_URL}/media/${mediaId}`);
     if (!response.ok) {
