@@ -759,6 +759,7 @@ ul {
 /* Resize blogCard on blogpage, mobile view*/
   .browseCard {
     width: 150px;
+    margin: 12px;
   }
 
  
