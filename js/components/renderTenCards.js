@@ -14,11 +14,15 @@ export async function renderInitialBlogCards() {
 }
 
 // Function to load more blog cards when "Show More" is clicked
-export async function showMoreBlogCards() {
+export async function showMoreBlogCards(event) {
+  event.preventDefault();  // Prevent the default focus/scroll behavior of the button
   console.log('Show more blog cards, current page:', currentPage);
   currentPage++;  // Increment page number
   console.log('Fetching page:', currentPage);  // Log the current page before fetching
   await renderBlogCards();
+
+  // Optional: Use scrollIntoView to keep the "Show More" button in view after loading
+  showMoreBtn.scrollIntoView({ behavior: 'smooth', block: 'end' });
 }
 
 // Function to fetch and render the blog cards
