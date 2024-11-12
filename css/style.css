@@ -1,4 +1,12 @@
 /* FONTS */
+
+h1 {
+  font-size: 2em;
+  font-weight: 700;
+  color: #3a3b39;
+  padding: 35px 0px;
+  margin: 0px;
+}
 body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
@@ -101,7 +109,6 @@ body {
   font-weight: 700;
   color: #3a3b39;
   margin: 0px;
-  padding: 20px 0px;
   text-align: center;
 }
 a {
@@ -376,15 +383,13 @@ border-radius: 10px;
   font-weight: 500;
   color: red;
   font-size: 0.75em;
-  margin: 0px 10px;
 }
 
 .splitContainer {
   display: flex;
   justify-content: flex-start;
-  padding: 10px 35px 0px 35px;
+  padding: 0px 35px;
   flex-wrap: wrap;
-  margin: 20px 0px 0px 0px;
 }
 
 .contact-info {
@@ -398,20 +403,14 @@ border-radius: 10px;
   font-size: 1.5em;
   font-weight: 700;
   color: #3a3b39;
-  margin: 0px 10px;
-  padding: 20px 0px;
 }
 
-.contact-info h1{
-  margin: 0px;
-  padding: 20px 10px 20px 10px;
-}
+
 
 .contact-info p {
   font-weight: 400;
   font-size: 1em;
   color: #3a3b39;
-  margin: 10px;
   max-width: 100%;
 }
 
@@ -435,10 +434,10 @@ border-radius: 10px;
 .formStyle input, textarea, .ctaSend {
   background-color: rgba(0, 0, 0, 0.06);
   padding: 10px;
-  margin: 10px;
+  margin: 10px 0px;
   border-radius: 5px;
   border: none;
-  width: 65%;
+  width: 85%;
   box-shadow: 0.5px -0.5px 0.8px #00000050;
 }
 
@@ -458,9 +457,6 @@ border-radius: 10px;
   align-items: center; /* Center the icon and message */
 }
 
-#message {
-  padding-right: 50px; /* Space between icon and message */
-}
 
 
 /* ABOUT PAGE */
@@ -497,7 +493,7 @@ border-radius: 10px;
 }
 
 .textContainer {
-  padding: 5em;
+  padding: 0em 5em;
   flex: 1; /* Gjør at tekstboksen kan ta opp tilgjengelig plass */
   max-width: 50%; /* Begrenser bredden på tekstboksen */
   
@@ -599,7 +595,7 @@ footer {
 ul {
   text-decoration: none;
   list-style-type: none;
-  padding-left: 5px; 
+  padding: 0px;
   text-align: left;
 }
 
@@ -681,15 +677,18 @@ ul {
 }
 
 .bottom-section {
+  display: flex;
+  flex-direction: column;
   flex: 1; 
+  justify-content: flex-start;
   text-align: center; 
-  padding: 20px; 
+  padding: 10px 80px; 
 }
 
 .bottom-section p {
   background-color: #ffffff10;
   width: fit-content;
-  padding: 10px 5px;
+  padding: 5px 0px;
   border-radius: 5px;
   color: white;
 }
@@ -752,6 +751,9 @@ ul {
     flex-direction: column;
 
   }
+  .bottom-section {
+    padding: 50px 0px;
+  }
 
   .blogCard {
     width: 285px;
@@ -788,18 +790,21 @@ ul {
     text-align: center; /* Ensure <p> text is centered */
     margin: 0 auto; /* Center the <p> element itself */
   }
+/* DetailMob */
+
+#postContainer {
+  padding: 0px 32px;
+}
 
   /* AboutMob */
 
+ 
   .textContainer {
-    padding: 1em;
+    padding: 0 2em;
     max-width: 100%;
   }
 
-  .textContainer h1 {
-    padding: 10px 0px;
-  }
-  
+
   #about-section {
     flex-direction: column;
     align-items: center;
@@ -812,7 +817,7 @@ ul {
   }
 
   .imageContainer img {
-    max-width: 80%; /* Sikrer at bildet ikke overskrider sin container */
+    max-width: 100%; /* Sikrer at bildet ikke overskrider sin container */
     height: auto;
   }
   
@@ -828,7 +833,8 @@ ul {
   margin: 10px 0px 0px 0px;
 }
 .contact-info h1 {
-  padding: 40px 10px 5px 10px;
+  padding: 30px 0px 10px 0px;
+  font-size: 1.2em;
 }
 
 .contact-info img {
@@ -841,8 +847,8 @@ ul {
 .contact-info p {
   font-size: 1em;
   color: #3a3b39;
-  margin: 0px 10px;
   max-width: 100%;
+  margin: 0px;
 }
 
 /* move ctaSend button to the right */
