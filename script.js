@@ -3,6 +3,7 @@ import { renderHeader } from './js/components/headerComponent.js';
 import { renderFooter } from './js/components/footerComponent.js';
 import { createBurgerMenu } from './js/components/burgerMenu.js';
 
+
 document.addEventListener('DOMContentLoaded', () => {
   fetchData(); // api call to get data from the server
   renderHeader(); // Render the header at the top of the page

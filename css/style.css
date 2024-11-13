@@ -135,6 +135,9 @@ h4 {
   font-weight: 400;
 }
 
+#about-section p:first-child {
+  margin-bottom: 20px;
+}
 .textContainer h2 {
   font-size: 2em;
   font-weight: 700;
@@ -183,7 +186,7 @@ header {
 }
 
 #overlay-img:hover {
-  transform: translate(-50%, -50%) scale(1.05); /* Scale up on hover */
+  transform: translate(-50%, -50%) scale(1.05); 
   filter: drop-shadow(5px 5px 5px #222);
 }
 
@@ -201,8 +204,8 @@ nav ul {
   list-style: none;
   margin: 0;
   padding: 0px 10px;
-  display: flex; /* Plasserer lenkene horisontalt */
-  gap: 20px; /* Avstand mellom lenkene */
+  display: flex; 
+  gap: 20px; 
 }
 
 nav ul li {
@@ -215,11 +218,11 @@ nav ul li {
 /* Styling for lenker */
 nav ul li a {
   text-decoration: none;
-  color: white; /* Hvit tekst for synlighet */
+  color: white; 
   font-size: 14px;
   font-weight: bold;
   padding: 10px 20px;
-  border-radius: 5px; /* Runde hjørner */
+  border-radius: 5px; 
 }
 
 /* Endrer fargen på lenken ved hover */
@@ -308,12 +311,12 @@ border-radius: 10px;
   background-color: #49533576;
   cursor: pointer;
   box-shadow: 1px 1px 0.8px #00000050;
-  opacity: 0.8; /* Fade effect */
+  opacity: 0.8; 
 }
 
 .showMoreBtn:disabled {
   background-color: #5555552f;
-  opacity: 0.6; /* Fade effect */
+  opacity: 0.6; 
   box-shadow: none;
   cursor: default;
 }
@@ -363,7 +366,7 @@ border-radius: 10px;
 }
 
 .wp-block-image img {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for a floating effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   max-width: 100%;
   height: auto;
   margin: 0px;
@@ -408,6 +411,12 @@ border-radius: 10px;
   display: flex;
   flex-direction: column;
   width: 75%;
+  align-content: flex-end;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
   align-content: flex-end;
 }
 
@@ -473,9 +482,9 @@ width: 100%;
 
 
 .errorForm {
-  min-height: 20px; /* Reserve space for the error message */
-  display: flex; /* Use flexbox for layout */
-  align-items: center; /* Center the icon and message */
+  min-height: 20px; 
+  display: flex;
+  align-items: center; 
 }
 
 
@@ -504,6 +513,7 @@ width: 100%;
   font-size: 1.2em;
   max-width: 60%;
 }
+
 
 #about-section {
   justify-content: flex-start;
@@ -608,7 +618,7 @@ width: 100%;
 /* FOOTER */
 
 footer {
-  background-color: #495335; /* Bakgrunnsfarge for footeren */
+  background-color: #495335; 
   padding-top: 10px;
 }
 
@@ -631,31 +641,31 @@ ul {
 }
 
 .emailInput {
-  max-width: 400px; /* Limits the width */
-  padding: 10px; /* Adds spacing inside the input */
-  margin: 10px 0; /* Adds spacing around the input */
-  border: 1px solid #ccc; /* Light border for clean look */
-  border-radius: 5px 0px 0px 5px; /* Rounded corners */
-  font-size: 16px; /* Easy-to-read font size */
-  outline: none; /* Removes default outline on focus */
-  transition: border-color 0.3s ease-in-out; /* Smooth transition for focus state */
+  max-width: 400px; 
+  padding: 10px; 
+  margin: 10px 0; 
+  border: 1px solid #ccc; 
+  border-radius: 5px 0px 0px 5px; 
+  font-size: 16px; 
+  outline: none; 
+  transition: border-color 0.3s ease-in-out; 
 }
 
 .emailInput:focus {
-  border-color: #007BFF; /* Changes border color when focused */
+  border-color: #007BFF; 
 }
 
 .submit-btn {
-  background-color: #be622d; /* Blue background color */
-  color: white; /* White text color */
-  padding: 10px 20px; /* Adds spacing inside the button */
-  margin: 10px 0; /* Adds spacing around the button */
-  border: none; /* Removes default button border */
-  border-radius:  0px 5px 5px 0px; /* Rounded corners */
-  font-size: 16px; /* Easy-to-read font size */
-  cursor: pointer; /* Changes cursor to pointer on hover */
-  outline: none; /* Removes default outline on focus */
-  transition: background-color 0.3s ease-in-out; /* Smooth transition for hover state */
+  background-color: #be622d; 
+  color: white; 
+  padding: 10px 20px; */
+  margin: 10px 0; 
+  border: none; 
+  border-radius:  0px 5px 5px 0px; 
+  font-size: 16px; 
+  cursor: pointer; 
+  outline: none; 
+  transition: background-color 0.3s ease-in-out; 
 }
 
 
@@ -663,6 +673,14 @@ ul {
 .fa-brands {
   color: #495335;
   margin: 3px 5px 3px 5px;
+  transition: text-shadow 0.3s ease;
+}
+
+.fa-brands:hover {
+  color: #be622d;
+  cursor: pointer;
+  text-shadow: 3px 3px 1px #00000070;
+  
 }
 
 .top-section {
@@ -709,10 +727,22 @@ ul {
 .bottom-section p {
   background-color: #ffffff10;
   width: fit-content;
-  padding: 5px 0px;
+  padding: 10px 5px;
   border-radius: 5px;
   color: white;
 }
+.bottom-section li {
+  padding: 1px;
+  margin: 2px 0px;
+}
+
+
+.bottom-section ul {
+  padding: 0px 10px;
+}
+
+
+
 .logoFooter {
   max-width: 120px;
   filter: drop-shadow(4px 5px 0.1px #000000);
@@ -775,6 +805,11 @@ ul {
   .bottom-section {
     padding: 50px 0px;
   }
+  .bottom-section li {
+    padding: 5px;
+    margin: 10px 0px;
+  }
+  
 
   .blogCard {
     width: 285px;
@@ -811,6 +846,9 @@ ul {
     text-align: center; /* Ensure <p> text is centered */
     margin: 0 auto; /* Center the <p> element itself */
   }
+
+  
+  
 /* DetailMob */
 
 #postContainer {
@@ -843,6 +881,9 @@ ul {
   }
   
 /* ContactMob */
+.formSection {
+  width: 75%;
+}
 
 .formStyle input, textarea {
   width: 100%;
@@ -869,7 +910,7 @@ ul {
   padding-right: 20px;
 }
 .contactInfo {
- width: 260px; 
+ width: 75%; 
 }
 
 

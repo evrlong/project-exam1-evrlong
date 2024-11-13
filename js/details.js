@@ -24,6 +24,9 @@ function renderPostDetails(post) {
     const titleElement = document.getElementById('postTitle');
     titleElement.textContent = post?.title?.rendered || 'No title';
 
+    const title = post?.title?.rendered || 'No title';
+    document.title = title; // Set the page title
+
     const dateElement = document.getElementById('postDate');
     const dateTime = post?.date || 'No date';
     const dateOnly = dateTime.split('T')[0]; // Extract only date
