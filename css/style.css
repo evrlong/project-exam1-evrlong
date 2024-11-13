@@ -127,7 +127,11 @@ h4 {
 
 
 
+
 #about-section p {
+  margin: 5px 0px 50px 0px;
+  font-size: 1em;
+  color: #3a3b39;
   font-weight: 400;
 }
 
