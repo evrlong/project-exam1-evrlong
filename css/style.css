@@ -407,7 +407,7 @@ border-radius: 10px;
 .contactInfo {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 75%;
   align-content: flex-end;
 }
 
@@ -451,7 +451,7 @@ width: 100%;
   margin: 10px auto;
   border-radius: 5px;
   border: none;
-  width: 90%;
+  width: 100%;
   box-shadow: 0.5px -0.5px 0.8px #00000050;
 }
 
@@ -845,7 +845,7 @@ ul {
 /* ContactMob */
 
 .formStyle input, textarea {
-  width: 80%;
+  width: 100%;
 }
 .splitContainer {
   padding: 0px 20px;
@@ -869,7 +869,7 @@ ul {
   padding-right: 20px;
 }
 .contactInfo {
- width: 220px; 
+ width: 260px; 
 }
 
 
