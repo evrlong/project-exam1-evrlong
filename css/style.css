@@ -381,6 +381,12 @@ border-radius: 10px;
 
 /* CONTACT PAGE */
 
+#contact-form h1{
+  width: 80%;
+  margin: 0px auto;
+  padding-right: 25px;
+}
+
 .errorForm {
   font-weight: 500;
   color: red;
@@ -390,18 +396,18 @@ border-radius: 10px;
 .splitContainer {
   display: flex;
   justify-content: flex-start;
-  padding: 0px 35px;
+  padding: 0px 80px;
   flex-wrap: wrap;
 }
 
-.contact-info {
+.contactInfo {
   display: flex;
   flex-direction: column;
   width: 60%;
   align-content: flex-end;
 }
 
-.formSection h1 , .contact-info h1 {
+.formSection h1 , .contactInfo h1 {
   font-size: 1.5em;
   font-weight: 700;
   color: #3a3b39;
@@ -409,14 +415,14 @@ border-radius: 10px;
 
 
 
-.contact-info p {
+.contactInfo p {
   font-weight: 400;
   font-size: 1em;
   color: #3a3b39;
   max-width: 100%;
 }
 
-.contact-info img {
+.contactInfo img {
   max-width: 19em;
   height: auto;
   margin: 10px 10px 0px 50px;
@@ -426,22 +432,26 @@ border-radius: 10px;
   display: flex;
   flex-direction: column;
   margin: 20px 0px;
+
 }
 
 .formStyle {
-  display: flex;
-  flex-direction: column;
+display: flex;
+flex-direction: column;
+width: 100%;
 }
 
-.formStyle input, textarea, .ctaSend {
+.formStyle input, textarea {
   background-color: rgba(0, 0, 0, 0.06);
   padding: 10px;
-  margin: 10px 0px;
+  margin: 10px auto;
   border-radius: 5px;
   border: none;
-  width: 85%;
+  width: 90%;
   box-shadow: 0.5px -0.5px 0.8px #00000050;
 }
+
+
 
 .ctaSend {
   background-color: #495335;
@@ -450,7 +460,12 @@ border-radius: 10px;
   border-radius: 5px;
   border: none;
   cursor: pointer;
+  display: flex;
+  justify-self: flex-end;
+  margin: 5px;
+  right: 0px;
 }
+
 
 
 .errorForm {
@@ -824,29 +839,50 @@ ul {
   }
   
 /* ContactMob */
+
+.formStyle input, textarea {
+  width: 80%;
+}
 .splitContainer {
+  padding: 0px 20px;
   flex-direction: column-reverse;
-  justify-content: center;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
 }  
 
-.contact-info {
- width: 100%;
-  height: auto;
-  margin: 10px 0px 0px 0px;
+
+
+#contact-form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
-.contact-info h1 {
+
+#contact-form h1{
+  width: 80%;
+  margin: 0px auto;
+  padding-right: 20px;
+}
+.contactInfo {
+ width: 220px; 
+}
+
+
+.contactInfo h1 {
+  justify-self: center;
   padding: 30px 0px 10px 0px;
   font-size: 1.2em;
 }
 
-.contact-info img {
+.contactInfo img {
   justify-self: center;
   max-width: 10em;
   height: auto;
   margin: 70px 0px 0px 30px;
 }
 
-.contact-info p {
+.contactInfo p {
   font-size: 1em;
   color: #3a3b39;
   max-width: 100%;
@@ -855,8 +891,10 @@ ul {
 
 /* move ctaSend button to the right */
 .ctaSend {
-  margin: 10px 0px 10px 10px;
-  right: 0px;
+  display: flex;
+  justify-self: flex-end;
+  margin: 5px 15px;
+
 }
 
 /* Burger menu */
