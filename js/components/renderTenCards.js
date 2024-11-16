@@ -98,7 +98,7 @@ function renderBlogCardsSet(postsToRender) {
     }
 
     // Add the title
-    const titleElement = document.createElement('h4');
+    const titleElement = document.createElement('h2');
     titleElement.textContent = title;
     cardElement.appendChild(titleElement);
 

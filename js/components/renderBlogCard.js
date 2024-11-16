@@ -96,7 +96,7 @@ function createBlogCard(post) {
     cardElement.appendChild(img);
   }
 
-  const titleElement = document.createElement('h4');
+  const titleElement = document.createElement('h2');
   titleElement.textContent = post.title.rendered || 'Empty title';
   cardElement.appendChild(titleElement);
 
