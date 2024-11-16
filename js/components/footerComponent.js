@@ -82,6 +82,7 @@ export function createFooter() {
   const submitBtn = document.createElement('button');
   submitBtn.type = 'submit';
   submitBtn.classList.add('submitBtnFooter');
+  submitBtn.setAttribute('aria-label', 'Submit your email for subscription');
 
   const submitIcon = document.createElement('i');
   submitIcon.classList.add('fa-solid', 'fa-caret-right');
