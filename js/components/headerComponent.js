@@ -28,7 +28,7 @@ export function createHeader() {
   const ul = document.createElement('ul');
 
   const navItems = [
-    { href: 'blogs.html', text: 'Blog' },
+    { href: 'blogs.html', text: 'Blogs' },
     { href: 'about.html', text: 'About' },
     { href: 'contact.html', text: 'Contact' }
   ];

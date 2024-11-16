@@ -46,6 +46,7 @@ body {
   justify-content: center;
 }
 
+
 /* pop up */
 .popup-message {
   position: fixed; /* Fixed position to stay in the viewport */
@@ -75,9 +76,12 @@ body {
 
 /* GENERAL STYLING */
 
+
+
 .burgerMenu {
  visibility: hidden; /* Hide the menu by default in deskop view */
 }
+
 
 .burgerBtn {
   display: none; /* Hide the burger button by default in desktop view */
@@ -160,7 +164,7 @@ header {
   width: 100%;
   max-height: 400px;
   overflow: hidden;
-}
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);}
 
 
 
@@ -255,6 +259,15 @@ border-radius: 10px;
   box-shadow: 1px 1px 0.8px #00000050;
   cursor: pointer;
   border: none;
+  transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.arrow:hover {
+  background-color: #49533576;
+  cursor: pointer;
+  box-shadow: 1px 1px 0.8px #00000050;
+  opacity: 0.8; /* Fade effect */
+  border: solid 1px #0000005a;
 }
 
 
@@ -360,6 +373,7 @@ border-radius: 10px;
 #postContent p {
   font-weight: 400;
 }
+
 
 .wp-block-image {
   margin: 0px 0px;
@@ -477,8 +491,16 @@ width: 100%;
   justify-self: flex-end;
   margin: 5px;
   right: 0px;
+  transition: text-decoration 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 
+.ctaSend:hover {
+  background-color: #be622d;
+  cursor: pointer;
+  box-shadow: 1px 1px 0.8px #00000050;
+  opacity: 0.8;
+  text-decoration: underline;
+}
 
 
 .errorForm {
@@ -568,7 +590,7 @@ width: 100%;
 }
 
 .blogCard:hover {
-  transform: scale(1.02); 
+  transform: scale(1.08); 
 }
 
 .blogCard h4 {
@@ -635,6 +657,13 @@ ul {
   color: white;
 }
 
+.footerLinks a:hover {
+  text-decoration: underline;
+  text-decoration-color: #be622d;
+  text-decoration-thickness: 3px;
+}
+
+
 .inputWrapper {
   display: flex;
   margin: 0px;
@@ -668,6 +697,23 @@ ul {
   transition: background-color 0.3s ease-in-out; 
 }
 
+.submitBtnFooter {
+  background-color: #be622d; 
+  color: white;
+  padding: 0px 20px;
+  margin: 10px 0; 
+  border: none; 
+  border-radius:  0px 5px 5px 0px; 
+  font-size: 17px; 
+  cursor: pointer; 
+  outline: none; 
+  transition: font-size, 0.3s ease-in-out; 
+}
+
+.submitBtnFooter:hover {
+  font-size: 20px; 
+  padding: 0px 23px;
+}
 
 
 .fa-brands {
@@ -762,7 +808,7 @@ ul {
 
 
 
-/* Responsive footer for small screens */
+
 @media (max-width: 700px) {
 
   /* Header */
@@ -814,7 +860,9 @@ ul {
   .blogCard {
     width: 285px;
   }
-/* Resize blogCard on blogpage, mobile view*/
+
+
+
   .browseCard {
     width: 150px;
     margin: 12px;
@@ -835,6 +883,7 @@ ul {
     justify-content: center;
   }
 
+  
  
   
   .bottom-section p {
@@ -843,8 +892,8 @@ ul {
     padding: 10px 5px;
     border-radius: 5px;
     color: white;
-    text-align: center; /* Ensure <p> text is centered */
-    margin: 0 auto; /* Center the <p> element itself */
+    text-align: center; 
+    margin: 0 auto; 
   }
 
   
@@ -876,7 +925,7 @@ ul {
   }
 
   .imageContainer img {
-    max-width: 100%; /* Sikrer at bildet ikke overskrider sin container */
+    max-width: 100%; /* prevent to exeed container */
     height: auto;
   }
   
@@ -934,11 +983,11 @@ ul {
   margin: 0px;
 }
 
-/* move ctaSend button to the right */
+
 .ctaSend {
   display: flex;
   justify-self: flex-end;
-  margin: 5px 15px;
+  margin: 5px 0px;
 
 }
 
@@ -968,21 +1017,20 @@ color: #f8f9fa;
   top: 0;
   right: 0;
   width: 100%;
-  height: 100%; /* Full height */
-  background-color: rgba(255, 255, 255, 0.929); /* Background color */
-  color: black; /* Text color */
-  padding: 20px; /* Padding inside the menu */
-  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for transform and opacity */
-  transform: translateX(100%); /* Hide offscreen */
-  opacity: 0; /* Fully transparent */
-  visibility: hidden; /* Make it non-interactive */
+  height: 100%; 
+  background-color: rgba(255, 255, 255, 0.929); 
+  color: black;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateX(100%); 
+  opacity: 0; 
+  visibility: hidden; 
   z-index: 2000;
 }
-/* Show the menu when active with animation*/
+
 .burgerMenu.active {
-  transform: translateX(0); /* Slide in from the right */
-  opacity: 2; /* Fully visible */
-  visibility: visible; /* Make it interactive */
+  transform: translateX(0); 
+  opacity: 2; 
+  visibility: visible; 
 }
 
 

@@ -81,7 +81,7 @@ export function createFooter() {
 
   const submitBtn = document.createElement('button');
   submitBtn.type = 'submit';
-  submitBtn.classList.add('submit-btn');
+  submitBtn.classList.add('submitBtnFooter');
 
   const submitIcon = document.createElement('i');
   submitIcon.classList.add('fa-solid', 'fa-caret-right');
