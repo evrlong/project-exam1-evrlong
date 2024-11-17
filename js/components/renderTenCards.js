@@ -81,7 +81,11 @@ function renderBlogCardsSet(postsToRender) {
     cardElement.className = 'blogCard browseCard';
     anchorElement.appendChild(cardElement);
 
-    const imageUrl = post.media?.source_url || '';
+    // Check for a thumbnail or fallback to full image URL
+    const imageUrl =
+      post.media?.media_details?.sizes?.thumbnail?.source_url ||
+      post.media?.source_url ||
+      '';
     const title = post.title?.rendered || 'Empty title';
 
     // Add image if available
@@ -97,6 +101,6 @@ function renderBlogCardsSet(postsToRender) {
     titleElement.textContent = title;
     cardElement.appendChild(titleElement);
 
-    container.appendChild(anchorElement); // Append the anchor (!not card) to the container
+    container.appendChild(anchorElement); // Append the anchor (not just the card) to the container
   });
 }

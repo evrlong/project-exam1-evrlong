@@ -86,7 +86,14 @@ function createBlogCard(post) {
   const cardElement = document.createElement('div');
   cardElement.className = 'blogCard';
 
-  if (post.media?.source_url) {
+  // Check for thumbnail URL
+  if (post.media?.media_details?.sizes?.thumbnail?.source_url) {
+    const img = document.createElement('img');
+    img.src = post.media.media_details.sizes.thumbnail.source_url; // Use thumbnail size
+    img.alt = `Thumbnail for ${post.title.rendered}`;
+    cardElement.appendChild(img);
+  } else if (post.media?.source_url) {
+    // Fallback to full image if thumbnail doesn't exist
     const img = document.createElement('img');
     img.src = post.media.source_url;
     img.alt = `Image for ${post.title.rendered}`;
