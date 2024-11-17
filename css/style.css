@@ -18,7 +18,9 @@ body {
 }
 
 a:focus #overlay-img {
-  border: 2px solid rgb(255, 255, 255); /* Apply the effect on the image when the link is focused */
+  border: 2px solid #db8a34;
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px black;
 }
 
 h1 {
