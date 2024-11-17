@@ -15,23 +15,21 @@ const previousBlogCardsButton = document.getElementById('previousBlogCards');
 nextBlogCardsButton.addEventListener('click', renderNextBlogCards);
 previousBlogCardsButton.addEventListener('click', renderPreviousBlogCards);
 
-
 // Function to count the total number of posts
 async function countPosts() {
   try {
-      const response = await fetch(`${BASE_URL}/posts?_fields=id&per_page=1`);
-      if (!response.ok) {
-          throw new Error('Failed to fetch posts');
-      }
+    const response = await fetch(`${BASE_URL}/posts?_fields=id&per_page=1`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch posts');
+    }
 
-      const totalPostsCount = response.headers.get('X-WP-Total');
-      return parseInt(totalPostsCount, 10);
+    const totalPostsCount = response.headers.get('X-WP-Total');
+    return parseInt(totalPostsCount, 10);
   } catch (error) {
-      console.error('Error counting posts:', error);
-      return 0;
+    console.error('Error counting posts:', error);
+    return 0;
   }
 }
-
 
 // Main function to fetch and render blog cards
 export async function renderBlogCard() {
@@ -47,12 +45,12 @@ export async function renderBlogCard() {
       renderBlogCardsSet(posts, 'blogCardContainer');
 
       // Check if there are more posts based on the total post count
-      const hasMorePosts = posts.length === postsPerPage && currentPage * postsPerPage < totalPostsCount;
-      toggleNextButton(hasMorePosts); 
+      const hasMorePosts =
+        posts.length === postsPerPage &&
+        currentPage * postsPerPage < totalPostsCount;
+      toggleNextButton(hasMorePosts);
     } else {
-      console.log('No more posts available.');
-      toggleNextButton(false); // Disable Next button if no posts left
-      showEndOfPostsMessage(); // Optional: Show message for no more posts
+      toggleNextButton(false);
     }
   } catch (error) {
     console.error('Error rendering blog cards:', error);
@@ -61,11 +59,10 @@ export async function renderBlogCard() {
   }
 }
 
-
 // Helper function to toggle loader visibility
 function toggleLoader(isLoading) {
-  loader.style.display = isLoading ? "block" : "none";
-  loadedContent.style.display = isLoading ? "none" : "block";
+  loader.style.display = isLoading ? 'block' : 'none';
+  loadedContent.style.display = isLoading ? 'none' : 'block';
 }
 
 // Helper function to render a set of blog cards
@@ -125,21 +122,10 @@ function toggleNextButton(isEnabled) {
   nextBlogCardsButton.style.pointerEvents = isEnabled ? 'auto' : 'none';
 }
 
-
-
 function updatePreviousButton() {
   const isEnabled = currentPage > 1;
   previousBlogCardsButton.style.opacity = isEnabled ? '1' : '0.5';
   previousBlogCardsButton.style.pointerEvents = isEnabled ? 'auto' : 'none';
-}
-
-// Optional: Show a message when there are no more posts to load
-function showEndOfPostsMessage() {
-  const container = document.getElementById('blogCardContainer');
-  const message = document.createElement('p');
-  message.textContent = 'No more posts available.';
-  message.className = 'end-of-posts-message'; // Optional styling class
-  container.appendChild(message);
 }
 
 // Initialize by rendering the first page

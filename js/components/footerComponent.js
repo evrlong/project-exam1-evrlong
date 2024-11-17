@@ -1,31 +1,31 @@
 export function createFooter() {
   const footer = document.createElement('footer');
-  footer.setAttribute('role', 'contentinfo'); 
+  footer.setAttribute('role', 'contentinfo');
 
   // Top section
   const topSection = document.createElement('div');
-  topSection.classList.add('top-section');
+  topSection.classList.add('topSection');
 
   const greenSection = document.createElement('div');
-  greenSection.classList.add('green-section');
-  greenSection.setAttribute('aria-hidden', 'true'); 
+  greenSection.classList.add('greenSection');
+  greenSection.setAttribute('aria-hidden', 'true');
 
   const someSection = document.createElement('div');
-  someSection.classList.add('some-section');
+  someSection.classList.add('soMeSection');
 
   // Social media icons
   const icons = [
     { class: 'fa-brands fa-square-facebook', label: 'Facebook' },
     { class: 'fa-brands fa-youtube', label: 'YouTube' },
     { class: 'fa-brands fa-square-instagram', label: 'Instagram' },
-    { class: 'fa-brands fa-square-snapchat', label: 'Snapchat' },
+    { class: 'fa-brands fa-square-snapchat', label: 'Snapchat' }
   ];
 
   icons.forEach((icon) => {
     const i = document.createElement('i');
     i.className = icon.class;
-    i.setAttribute('aria-label', icon.label); 
-    i.setAttribute('role', 'img'); 
+    i.setAttribute('aria-label', icon.label);
+    i.setAttribute('role', 'img');
     someSection.appendChild(i);
   });
 
@@ -34,12 +34,12 @@ export function createFooter() {
 
   // Bottom sections
   const bottomSections = document.createElement('div');
-  bottomSections.classList.add('bottom-sections');
+  bottomSections.classList.add('bottomSections');
 
   // First bottom section (Quick Links)
   const quickLinks = document.createElement('div');
-  quickLinks.classList.add('bottom-section');
-  quickLinks.setAttribute('aria-label', 'Quick Links'); 
+  quickLinks.classList.add('bottomSection');
+  quickLinks.setAttribute('aria-label', 'Quick Links');
 
   const quickLinksTitle = document.createElement('p');
   quickLinksTitle.textContent = 'QUICK LINKS';
@@ -52,7 +52,7 @@ export function createFooter() {
     { href: 'index.html', text: 'HOME' },
     { href: 'blogs.html', text: 'BLOG' },
     { href: 'about.html', text: 'ABOUT' },
-    { href: 'contact.html', text: 'CONTACT' },
+    { href: 'contact.html', text: 'CONTACT' }
   ];
 
   links.forEach((link) => {
@@ -60,7 +60,7 @@ export function createFooter() {
     const a = document.createElement('a');
     a.href = link.href;
     a.textContent = link.text;
-    a.setAttribute('aria-label', `Navigate to ${link.text}`); 
+    a.setAttribute('aria-label', `Navigate to ${link.text}`);
     li.appendChild(a);
     quickLinksList.appendChild(li);
   });
@@ -69,7 +69,7 @@ export function createFooter() {
 
   // Second bottom section (Subscribe)
   const subscribeSection = document.createElement('div');
-  subscribeSection.classList.add('bottom-section');
+  subscribeSection.classList.add('bottomSection');
 
   const subscribeTitle = document.createElement('p');
   subscribeTitle.textContent = 'SUBSCRIBE';
@@ -82,9 +82,12 @@ export function createFooter() {
   const emailInput = document.createElement('input');
   emailInput.classList.add('emailInput');
   emailInput.type = 'email';
-  emailInput.placeholder = 'Submit your email'; 
-  emailInput.setAttribute('aria-label', 'Enter your email address for subscription'); 
-  emailInput.required = true; // 
+  emailInput.placeholder = 'Submit your email';
+  emailInput.setAttribute(
+    'aria-label',
+    'Enter your email address for subscription'
+  );
+  emailInput.required = true; //
 
   const submitBtn = document.createElement('button');
   submitBtn.type = 'submit';
@@ -102,12 +105,12 @@ export function createFooter() {
 
   // Third bottom section (Logo)
   const logoSection = document.createElement('div');
-  logoSection.classList.add('bottom-section', 'logo-section');
+  logoSection.classList.add('bottomSection', 'logoSection');
 
   const logoImg = document.createElement('img');
   logoImg.classList.add('logoFooter');
   logoImg.src = '/images/logo.png';
-  logoImg.alt = 'Blog Logo'; 
+  logoImg.alt = 'Blog Logo';
   logoSection.appendChild(logoImg);
 
   bottomSections.appendChild(quickLinks);

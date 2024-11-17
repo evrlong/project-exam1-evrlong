@@ -7,7 +7,9 @@ export async function fetchMedia(mediaId) {
   try {
     const response = await fetch(`${BASE_URL}/media/${mediaId}`);
     if (!response.ok) {
-      throw new Error(`Error fetching media for ID: ${mediaId} - ${response.status}`);
+      throw new Error(
+        `Error fetching media for ID: ${mediaId} - ${response.status}`
+      );
     }
     return await response.json();
   } catch (error) {

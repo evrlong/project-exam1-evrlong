@@ -56,19 +56,20 @@ export function renderHeader() {
 // Hide header and burger button when scrolling down
 let lastScrollTop = 0;
 window.addEventListener('scroll', () => {
-  const isMobile = window.innerWidth <= 768; // mobile breakpoint
-  if (!isMobile) return; 
+  const isMobile = window.innerWidth <= 834; // mobile breakpoint
+  if (!isMobile) return;
 
-  const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+  const currentScroll =
+    window.pageYOffset || document.documentElement.scrollTop;
   const header = document.querySelector('header');
   const burgerBtn = document.getElementById('burgerBtn');
 
   if (currentScroll > lastScrollTop) {
-    header.style.top = `-${header.offsetHeight}px`; // Hide header
-    burgerBtn.style.top = `-${burgerBtn.offsetHeight}px`; // Hide burger button
+    header.style.top = `-${header.offsetHeight}px`;
+    burgerBtn.style.top = `-${burgerBtn.offsetHeight}px`;
   } else {
-    header.style.top = '0'; // Show header
-    burgerBtn.style.top = '0'; // Show burger button
+    header.style.top = '0';
+    burgerBtn.style.top = '0';
   }
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Update last scroll position
 });

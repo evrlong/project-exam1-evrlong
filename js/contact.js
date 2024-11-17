@@ -4,7 +4,7 @@ const fields = [
     id: 'name',
     placeholder: 'Full name',
     errorId: 'nameError',
-    errorMsg: 'Minimum 5 letters',
+    errorMsg: 'Minimum 5 letters'
   },
   {
     name: 'email',
@@ -12,14 +12,14 @@ const fields = [
     placeholder: 'Email Address',
     type: 'email',
     errorId: 'emailError',
-    errorMsg: '⚠️ Invalid Email Address',
+    errorMsg: '⚠️ Invalid Email Address'
   },
   {
     name: 'subject',
     id: 'subject',
     placeholder: 'Subject',
     errorId: 'subjectError',
-    errorMsg: 'Minimum 15 letters',
+    errorMsg: 'Minimum 15 letters'
   },
   {
     name: 'message',
@@ -27,7 +27,7 @@ const fields = [
     placeholder: 'Text',
     isTextarea: true,
     errorId: 'textError',
-    errorMsg: 'Minimum 5 letters',
+    errorMsg: 'Minimum 5 letters'
   }
 ];
 
@@ -65,9 +65,10 @@ function validateInput(input, field) {
   const errorDiv = document.getElementById(field.errorId);
   if (!isValid) {
     // Display a dynamic error message with minimum length
-    errorDiv.textContent = field.name === 'email'
-      ? field.errorMsg
-      : `⚠️ Minimum ${minLength} characters`;
+    errorDiv.textContent =
+      field.name === 'email'
+        ? field.errorMsg
+        : `⚠️ Minimum ${minLength} characters`;
     errorDiv.style.display = 'block';
     input.setAttribute('aria-invalid', 'true');
     input.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
@@ -120,14 +121,11 @@ function createContactForm() {
     errorDiv.className = 'errorForm';
     errorDiv.id = field.errorId;
     errorDiv.setAttribute('role', 'alert');
-    errorDiv.style.display = 'none'; // Initially hide error message
-
-  
+    errorDiv.style.display = 'none';
 
     const messageSpan = document.createElement('span');
     messageSpan.className = 'errorMsg';
     messageSpan.textContent = field.errorMsg;
-
 
     errorDiv.appendChild(messageSpan);
 
@@ -154,13 +152,13 @@ function createContactForm() {
 
   function showPopupMessage(message) {
     const popup = document.createElement('div');
-    popup.className = 'popup-message';
+    popup.className = 'popupMsg';
     popup.textContent = message;
 
     // Append the popup to the body
     document.body.appendChild(popup);
 
-    // Remove the popup after 3 seconds
+    // Remove popup after 3 seconds
     setTimeout(() => {
       popup.remove();
     }, 3000);
@@ -168,21 +166,18 @@ function createContactForm() {
 
   form.addEventListener('submit', (event) => {
     event.preventDefault(); // Prevents actual form submission
-
     let allValid = true;
 
     // Validate each input field
     fields.forEach((field) => {
       const input = document.getElementById(field.id);
-      const isValid = validateInput(input, field); // Pass both input and field
-      allValid = allValid && isValid; // Combine the validity results
+      const isValid = validateInput(input, field);
+      allValid = allValid && isValid;
     });
 
     if (allValid) {
-      showPopupMessage("Message sent!"); // Show the popup message
+      showPopupMessage('Message sent!');
       form.reset(); // Reset the form
-    } else {
-      console.log("Please fix the errors before submitting."); // Optional feedback
     }
   });
 }
