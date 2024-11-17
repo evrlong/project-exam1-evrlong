@@ -128,31 +128,80 @@ a {
 
 /* GENERAL STYLING */
 
+/* blog card */
+
+.blogCard {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.blogCard:hover {
+  transform: scale(1.08);
+}
+
+.blogCard img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.blogCard p {
+  margin: 10px;
+  color: #666;
+  font-size: 0.9em;
+  height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#blogCardContainer {
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.allBlogContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .burgerMenu {
-  visibility: hidden; /* Hide the menu by default in deskop view */
+  visibility: hidden;
 }
 
 .burgerBtn {
-  display: none; /* Hide the burger button by default in desktop view */
+  display: none;
 }
 
 /* Overlay styles */
 #overlay {
   display: none; /* Hidden by default */
-  position: fixed; /* Position it to cover the entire viewport */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-  justify-content: center; /* Center the content */
-  align-items: center; /* Center the content */
-  z-index: 1000; /* Ensure it is on top of other elements */
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 #enlargedImage {
-  max-width: 90%; /* Maximum width for the enlarged image */
-  max-height: 90%; /* Maximum height for the enlarged image */
+  max-width: 90%;
+  max-height: 90%;
 }
 
 #about-section p {
@@ -402,6 +451,8 @@ nav ul li:hover {
   font-weight: 400;
 }
 
+/* WP BLOCKS */
+
 .wp-block-image {
   margin: 0px 0px;
 }
@@ -535,6 +586,7 @@ textarea {
 }
 
 /* ABOUT PAGE */
+
 .aboutContainer {
   flex-direction: row;
   display: flex;
@@ -581,55 +633,6 @@ textarea {
   height: auto;
   border-radius: 40px;
   margin: 40px 0px;
-}
-
-/* blog card */
-
-.blogCard {
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  width: 200px;
-  overflow: hidden;
-  transition: transform 0.2s;
-}
-
-.blogCard:hover {
-  transform: scale(1.08);
-}
-
-.blogCard img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-bottom: 2px solid #e0e0e0;
-}
-
-.blogCard p {
-  margin: 10px;
-  color: #666;
-  font-size: 0.9em;
-  height: 50px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-#blogCardContainer {
-  width: 100%;
-  flex-direction: row;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.allBlogContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* FOOTER */
@@ -966,6 +969,8 @@ ul {
 
   .burgerBtn {
     display: block;
+    border-radius: 5px;
+    box-shadow: 1px 1px 0.8px #00000050;
     position: fixed;
     top: 0.8em;
     right: 1em;
@@ -976,7 +981,7 @@ ul {
     transition: top 0.3s;
     font-weight: 900;
     font-size: 25px;
-    background-color: #495335;
+    background-color: #000000bb;
   }
 
   .burgerMenu {

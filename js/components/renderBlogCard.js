@@ -94,6 +94,7 @@ function createBlogCard(post) {
     cardElement.appendChild(img);
   } else if (post.media?.source_url) {
     // Fallback to full image if thumbnail doesn't exist
+
     const img = document.createElement('img');
     img.src = post.media.source_url;
     img.alt = `Image for ${post.title.rendered}`;
