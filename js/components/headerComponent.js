@@ -13,12 +13,23 @@ export function createHeader() {
   // Logo link
   const logoLink = document.createElement('a');
   logoLink.href = 'index.html';
+  logoLink.setAttribute('tabindex', '0'); // Makes the link focusable via keyboard
+  logoLink.setAttribute('aria-label', 'Go to homepage'); // Adds an accessible label
 
   const overlayImg = document.createElement('img');
   overlayImg.src = '/images/logo.png';
-  overlayImg.alt = 'Overlay Link';
+  overlayImg.alt = 'Homepage Logo'; // Describes the image for screen readers
   overlayImg.id = 'overlay-img';
+
   logoLink.appendChild(overlayImg);
+
+  // Scroll the logo into view when it's focused with the keyboard
+  logoLink.addEventListener('focus', () => {
+    logoLink.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center' // Scroll to the center of the viewport
+    });
+  });
 
   header.appendChild(logoLink);
 

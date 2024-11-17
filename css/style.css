@@ -17,6 +17,10 @@ body {
   text-align: center;
 }
 
+a:focus #overlay-img {
+  border: 2px solid rgb(255, 255, 255); /* Apply the effect on the image when the link is focused */
+}
+
 h1 {
   font-size: 2em;
   font-weight: 700;
@@ -970,7 +974,7 @@ ul {
     transition: top 0.3s;
     font-weight: 900;
     font-size: 25px;
-    background-color: #00000060;
+    background-color: #495335;
   }
 
   .burgerMenu {

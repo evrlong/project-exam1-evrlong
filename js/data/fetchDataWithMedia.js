@@ -23,6 +23,7 @@ export async function fetchMedia(mediaId) {
 async function fetchMediaForPost(post) {
   if (post.featured_media) {
     post.media = await fetchMedia(post.featured_media);
+    console.log(post.media);
   }
   return post;
 }
