@@ -63,7 +63,7 @@ If you want to contribute, you can make som changes or add new features and subm
 
 If you want to get in touch you can reach me at:
 
-[www.linkedin.com/in/erik-løkken-005384261](www.linkedin.com)
+[linkedIn](www.linkedin.com/in/erik-løkken-005384261)
 
 
 ## Acknowledgments
